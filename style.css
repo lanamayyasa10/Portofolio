@@ -2982,3 +2982,10 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   }
 }
 
+
+/* Fix decorative symbol on mobile Skills */
+@media (max-width: 600px) {
+  .skill-detail .detail-decoration {
+    display: none !important;
+  }
+}
