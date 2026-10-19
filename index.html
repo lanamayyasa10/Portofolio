@@ -13,7 +13,7 @@
 <body>
 
   <header class="navbar">
-    <a href="#home" class="logo" aria-label="Lana Mayyasa, kembali ke Home">LANA<span>.</span></a>
+    <a href="#home" class="logo" aria-label="Lana Mayyasa, kembali ke Home">Portofolio<span>.</span></a>
     <button class="menu-toggle" aria-label="Buka menu">☰</button>
     <nav class="nav-links">
       <a href="#home">Home</a>
@@ -375,96 +375,497 @@
 </section>
 
 
-    <section id="projects" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">03 — PROJECTS</p>
-        <h2>Selected <span><i>works.</i></span></h2>
-      </div>
-      <div class="project-switcher reveal">
-        <div class="project-tabs" role="tablist" aria-label="Pilih kategori project">
-          <button class="project-tab active" id="web-tab" type="button" role="tab"
-            aria-selected="true" aria-controls="web-projects" data-project="web">
-            <span class="tab-number">01</span>
-            <span class="tab-label">Web Projects</span>
-            <span class="tab-count">02</span>
-          </button>
-          <button class="project-tab" id="design-tab" type="button" role="tab"
-            aria-selected="false" aria-controls="design-projects" data-project="design" tabindex="-1">
-            <span class="tab-number">02</span>
-            <span class="tab-label">Design Projects</span>
-            <span class="tab-count">01</span>
-          </button>
-          <span class="tabs-indicator" aria-hidden="true"></span>
-        </div>
-        <div class="project-hint"><span class="swipe-icon">↔</span> Choose a category or swipe to explore</div>
-      </div>
 
-      <div class="project-stage" id="project-stage" aria-live="polite">
-        <div class="projects-panel active" id="web-projects" role="tabpanel" aria-labelledby="web-tab" data-panel="web">
-          <div class="projects-grid">
-            <article class="project">
-              <div class="project-image project-one"><span>PROJECT 01 <b>↗</b></span></div>
-              <div class="project-body">
-                <p class="project-type">WEB DEVELOPMENT</p>
-                <h3>Class Management System</h3>
-                <p>A class management dashboard featuring data recapitulation and CRUD functionality, built using the MVC architecture.</p>
-                <div class="tags"><span>PHP</span><span>MVC</span><span>CRUD</span></div>
-              </div>
-            </article>
-            <article class="project">
-              <div class="project-image project-three"><span>PROJECT 02 <b>↗</b></span></div>
-              <div class="project-body">
-                <p class="project-type">WEB DEVELOPMENT</p>
-                <h3>Loka Jawa</h3>
-                <p>An interactive cultural storytelling website designed to explore traditional stories through an engaging digital interface.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-              </div>
-            </article>
-          </div>
-        </div>
+<section id="projects" class="section projects-showcase">
 
-        <div class="projects-panel" id="design-projects" role="tabpanel" aria-labelledby="design-tab" data-panel="design" hidden>
-          <div class="projects-grid design-grid">
-            <article class="project">
-              <div class="project-image project-two"><span>DESIGN 01 <b>↗</b></span></div>
-              <div class="project-body">
-                <p class="project-type">UI / UX DESIGN</p>
-                <h3>Creative Interface</h3>
-                <p>A modern interface concept focused on visual hierarchy, thoughtful layouts, and a smooth user experience.</p>
-                <div class="tags"><span>Figma</span><span>UI Design</span><span>UX</span></div>
-              </div>
-            </article>
-            <div class="design-note">
-              <span class="design-note-icon">✳</span>
-              <p class="eyebrow">DESIGN PHILOSOPHY</p>
-              <h3>Useful, clear, <i>and human.</i></h3>
-              <p>I turn ideas into interfaces that feel intuitive, consistent, and enjoyable to use.</p>
-              <span class="note-index">A little intention goes a long way.</span>
+  <div class="section-heading reveal">
+    <p class="eyebrow">03 — SELECTED WORK</p>
+    <h2>Ideas brought <span><i>to life.</i></span></h2>
+    <p class="projects-subtitle">
+      A collection of digital experiences built through code and creativity.
+    </p>
+  </div>
+
+  <!-- PROJECT CATEGORY TABS -->
+  <div class="project-switcher reveal">
+    <div class="project-tabs" role="tablist" aria-label="Project categories">
+
+      <button class="project-tab active"
+        id="web-tab"
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="web-projects"
+        data-project="web">
+
+        <span class="tab-number">01</span>
+        <span class="tab-label">Web Development</span>
+        <span class="tab-count">02</span>
+      </button>
+
+      <button class="project-tab"
+        id="design-tab"
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="design-projects"
+        data-project="design"
+        tabindex="-1">
+
+        <span class="tab-number">02</span>
+        <span class="tab-label">UI / UX Design</span>
+        <span class="tab-count">01</span>
+      </button>
+
+    </div>
+
+    <div class="project-hint">
+      <span class="swipe-icon">↔</span>
+      SELECT A CATEGORY TO EXPLORE
+    </div>
+  </div>
+
+  <!-- PROJECT CARDS -->
+  <div class="project-stage" id="project-stage" aria-live="polite">
+
+    <!-- WEB PROJECTS -->
+    <div class="projects-panel active"
+      id="web-projects"
+      role="tabpanel"
+      aria-labelledby="web-tab"
+      data-panel="web">
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 01 -->
+        <article class="project-card">
+
+          <div class="project-art art-dashboard">
+
+            <div class="art-topline">
+              <span><i></i> PROJECT PREVIEW</span>
+              <span>01 / 02</span>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="project-navigation">
-        <span class="project-current"><b id="project-current-number">01</b> / 02</span>
-        <div class="project-arrows">
-          <button type="button" class="project-arrow" id="project-prev" aria-label="Kategori sebelumnya">←</button>
-          <button type="button" class="project-arrow" id="project-next" aria-label="Kategori berikutnya">→</button>
-        </div>
-      </div>
-    </section>
 
-    <section id="contact" class="contact-section">
-      <div class="contact-inner reveal">
-        <p class="eyebrow">04 — CONTACT</p>
-        <h2>Let’s <span>Connect</span> and <span>Create</span> something remarkable <span><i>Together</i></span></h2>
-        <p>Always open to meaningful projects, thoughtful collaborations, and conversations surrounding technology, design, and creativity.</p>
-        <a class="email-link" href="mailto:your@email.com">lanamayyasa10@email.com ↗</a>
-        <div class="socials">
-          <a href="https://github.com/lanamayyasa10" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.instagram.com/carapherneliaf" target="_blank" rel="noopener">Instagram</a>
+            <div class="art-browser">
+              <div class="art-browser-bar">
+                <span></span><span></span><span></span>
+                <small>class-management / dashboard</small>
+              </div>
+
+              <div class="art-dashboard-layout">
+                <aside class="art-sidebar">
+                  <b>CMS.</b>
+                  <i class="selected"></i>
+                  <i></i><i></i><i></i>
+                </aside>
+
+                <div class="art-main">
+                  <small>OVERVIEW</small>
+                  <h4>Dashboard</h4>
+
+                  <div class="art-stats">
+                    <div><small>STUDENTS</small><b>128</b></div>
+                    <div><small>CLASSES</small><b>08</b></div>
+                  </div>
+
+                  <div class="art-chart">
+                    <i></i><i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <span class="art-bottom-label">WEB APPLICATION</span>
+          </div>
+
+          <div class="project-card-body">
+
+            <div class="project-card-meta">
+              <span>WEB DEVELOPMENT</span>
+              <span>01</span>
+            </div>
+
+            <h3>Class Management System</h3>
+
+            <p>
+              A class management dashboard designed to organise
+              class data, simplify recapitulation, and support CRUD operations.
+            </p>
+
+            <div class="project-tech-tags">
+              <span>PHP</span>
+              <span>MVC</span>
+              <span>CRUD</span>
+            </div>
+
+            <a class="project-card-link" href="#contact">
+              <span>Discuss this project</span>
+              <b>↗</b>
+            </a>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="project-card">
+
+          <div class="project-art art-culture">
+
+            <div class="art-topline">
+              <span><i></i> PROJECT PREVIEW</span>
+              <span>02 / 02</span>
+            </div>
+
+            <div class="culture-window">
+              <div class="culture-orb"></div>
+
+              <span class="culture-eyebrow">
+                DISCOVER THE ARCHIPELAGO
+              </span>
+
+              <h4>Loka<br><i>Jawa.</i></h4>
+
+              <p>
+                Stories, traditions<br>
+                and cultural heritage.
+              </p>
+
+              <span class="culture-cta">EXPLORE STORIES ↗</span>
+            </div>
+
+            <span class="art-bottom-label">CULTURAL STORYTELLING</span>
+          </div>
+
+          <div class="project-card-body">
+
+            <div class="project-card-meta">
+              <span>WEB DEVELOPMENT</span>
+              <span>02</span>
+            </div>
+
+            <h3>Loka Jawa</h3>
+
+            <p>
+              An interactive cultural storytelling website that introduces
+              visitors to traditional stories and Indonesian heritage.
+            </p>
+
+            <div class="project-tech-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+
+            <a class="project-card-link" href="#contact">
+              <span>Discuss this project</span>
+              <b>↗</b>
+            </a>
+
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- DESIGN PROJECTS -->
+    <div class="projects-panel"
+      id="design-projects"
+      role="tabpanel"
+      aria-labelledby="design-tab"
+      data-panel="design"
+      hidden>
+
+      <div class="projects-grid design-project-grid">
+
+        <article class="project-card">
+
+          <div class="project-art art-interface">
+
+            <div class="art-topline">
+              <span><i></i> DESIGN PREVIEW</span>
+              <span>01 / 01</span>
+            </div>
+
+            <div class="interface-canvas">
+
+              <div class="interface-phone">
+                <div class="phone-camera"></div>
+                <small>YOUR BRAND</small>
+                <div class="phone-hero"></div>
+                <span class="phone-kicker">DESIGNED WITH PURPOSE</span>
+                <h4>Design that<br>feels natural.</h4>
+                <p>Simple, thoughtful, intuitive.</p>
+                <div class="phone-button"></div>
+                <div class="phone-lines"></div>
+              </div>
+
+              <div class="interface-floating-card">
+                <span>COLOUR PALETTE</span>
+                <div class="palette-colours">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+                <small>Dark / Maroon / Neutral</small>
+              </div>
+
+            </div>
+
+            <span class="art-bottom-label">INTERFACE & EXPERIENCE</span>
+          </div>
+
+          <div class="project-card-body">
+
+            <div class="project-card-meta">
+              <span>UI / UX DESIGN</span>
+              <span>01</span>
+            </div>
+
+            <h3>Creative Interface</h3>
+
+            <p>
+              An interface design concept focused on visual hierarchy,
+              consistent components, and an intuitive user experience.
+            </p>
+
+            <div class="project-tech-tags">
+              <span>Figma</span>
+              <span>UI Design</span>
+              <span>Prototyping</span>
+            </div>
+
+            <a class="project-card-link" href="#contact">
+              <span>Discuss this design</span>
+              <b>↗</b>
+            </a>
+
+          </div>
+        </article>
+
+        <aside class="project-manifesto">
+          <span class="manifesto-symbol">✳</span>
+          <p class="eyebrow">DESIGN PHILOSOPHY</p>
+
+          <h3>Thoughtful by design.<br><i>Purposeful by nature.</i></h3>
+
+          <p>
+            I believe good design is more than appearance.
+            It brings clarity to ideas and makes digital experiences
+            easier and more enjoyable to use.
+          </p>
+
+          <div class="manifesto-footer">
+            <span>DESIGN WITH INTENTION</span>
+            <span>✳</span>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORY NAVIGATION -->
+  <div class="project-navigation">
+    <span class="project-current">
+      <b id="project-current-number">01</b> / 02
+    </span>
+
+    <div class="project-arrows">
+      <button type="button"
+        class="project-arrow"
+        id="project-prev"
+        aria-label="Previous category">←</button>
+
+      <button type="button"
+        class="project-arrow"
+        id="project-next"
+        aria-label="Next category">→</button>
+    </div>
+  </div>
+
+</section>
+
+
+    
+<section id="contact" class="section contact-showcase">
+
+  <!-- SECTION HEADING -->
+  <div class="section-heading reveal">
+    <p class="eyebrow">04 — GET IN TOUCH</p>
+    <h2>Let's create something <span><i>meaningful.</i></span></h2>
+    <p class="contact-subtitle">
+      Have an idea in mind? Let's talk about it and turn it into reality.
+    </p>
+  </div>
+
+  <div class="contact-layout">
+
+    <!-- LEFT: CONTACT INFORMATION -->
+    <div class="contact-info reveal">
+
+      <div class="contact-intro">
+        <span class="contact-symbol">✳</span>
+
+        <p class="contact-overline">LET'S START A CONVERSATION</p>
+
+        <h3>Every great project starts with a <i>hello.</i></h3>
+
+        <p class="contact-description">
+          Whether it's a website, a design concept, or a new opportunity,
+          I'm always interested in connecting with people who enjoy
+          creating meaningful digital experiences.
+        </p>
+      </div>
+
+      <!-- EMAIL -->
+      <a class="contact-method"
+        href="mailto:lanamayyasa10@gmail.com">
+
+        <span class="contact-method-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="3"
+              stroke="currentColor" stroke-width="1.5"/>
+            <path d="m4 7 8 6 8-6"
+              stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+
+        <span class="contact-method-text">
+          <small>EMAIL ME AT</small>
+          <strong>lanamayyasa10@gmail.com</strong>
+        </span>
+
+        <span class="contact-method-arrow">↗</span>
+      </a>
+
+      <!-- LOCATION -->
+      <div class="contact-method">
+        <span class="contact-method-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
+              stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="10" r="2.5"
+              stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+
+        <span class="contact-method-text">
+          <small>BASED IN</small>
+          <strong>Surabaya, Indonesia</strong>
+        </span>
+      </div>
+
+      <!-- SOCIAL LINKS -->
+      <div class="contact-socials">
+        <p>FIND ME ELSEWHERE</p>
+
+        <div class="contact-social-links">
+          <!-- Ganti URL dengan akunmu -->
+          <a href="https://github.com/"
+            target="_blank" rel="noopener noreferrer">
+            GitHub <span>↗</span>
+          </a>
+
+          <a href="https://www.instagram.com/"
+            target="_blank" rel="noopener noreferrer">
+            Instagram <span>↗</span>
+          </a>
+
+          <a href="https://www.linkedin.com/"
+            target="_blank" rel="noopener noreferrer">
+            LinkedIn <span>↗</span>
+          </a>
         </div>
       </div>
-    </section>
+
+    </div>
+
+    <!-- RIGHT: CONTACT FORM -->
+    <div class="contact-form-panel reveal">
+
+      <div class="contact-form-heading">
+        <div>
+          <p class="contact-overline">YOUR NEXT IDEA</p>
+          <h3>Send me a message<span>.</span></h3>
+        </div>
+
+        <span class="contact-form-index">01 / 01</span>
+      </div>
+
+      <form id="contact-form">
+
+        <div class="contact-input-row">
+
+          <div class="contact-field">
+            <label for="contact-name">Your name</label>
+            <input
+              id="contact-name"
+              name="name"
+              type="text"
+              placeholder="Enter your name"
+              autocomplete="name"
+              required>
+          </div>
+
+          <div class="contact-field">
+            <label for="contact-email">Your email</label>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required>
+          </div>
+
+        </div>
+
+        <div class="contact-field">
+          <label for="contact-subject">Subject</label>
+          <input
+            id="contact-subject"
+            name="subject"
+            type="text"
+            placeholder="What would you like to discuss?"
+            required>
+        </div>
+
+        <div class="contact-field">
+          <label for="contact-message">Your message</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="5"
+            placeholder="Tell me a little about your idea..."
+            required></textarea>
+        </div>
+
+        <button class="contact-submit" type="submit">
+          <span>Send your message</span>
+          <span class="submit-arrow">↗</span>
+        </button>
+
+        <p class="contact-form-note" id="contact-form-note"
+          aria-live="polite">
+          Your email app will open to send the message.
+        </p>
+
+      </form>
+
+      <div class="contact-form-decoration" aria-hidden="true">✳</div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM SIGNATURE -->
+  <div class="contact-bottom">
+    <span>DESIGNED & BUILT WITH INTENTION</span>
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+
+</section>
+
   </main>
 
   <footer>

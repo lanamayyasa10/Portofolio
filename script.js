@@ -399,3 +399,47 @@ document.querySelector("#hero-work-next")?.addEventListener("click", () => {
   selectSkill(initialButton);
 })();
 
+
+/* ===== CONTACT FORM: OPEN EMAIL APP ===== */
+
+(() => {
+  const form = document.querySelector("#contact-form");
+  const note = document.querySelector("#contact-form-note");
+
+  if (!form || !note) return;
+
+  // GANTI dengan alamat email kamu yang sebenarnya.
+  const recipient = "YOUR_EMAIL@example.com";
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+
+    const name = formData.get("name").toString().trim();
+    const email = formData.get("email").toString().trim();
+    const subject = formData.get("subject").toString().trim();
+    const message = formData.get("message").toString().trim();
+
+    const emailSubject = encodeURIComponent(
+      `[Portfolio Contact] ${subject}`
+    );
+
+    const emailBody = encodeURIComponent(
+      `Hello Lana,\n\n` +
+      `${message}\n\n` +
+      `From: ${name}\n` +
+      `Email: ${email}`
+    );
+
+    const mailtoURL =
+      `mailto:${recipient}?subject=${emailSubject}&body=${emailBody}`;
+
+    note.textContent =
+      "Opening your email app. Please send the message from there.";
+
+    window.location.href = mailtoURL;
+  });
+})();
