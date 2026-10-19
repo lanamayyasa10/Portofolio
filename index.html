@@ -7,13 +7,13 @@
   <title>Portfolio | Lana Mayyasa </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="navbar">
-    <a href="#home" class="logo"></a>
+    <a href="#home" class="logo" aria-label="Lana Mayyasa, kembali ke Home">LANA<span>.</span></a>
     <button class="menu-toggle" aria-label="Buka menu">☰</button>
     <nav class="nav-links">
       <a href="#home">Home</a>
@@ -25,24 +25,86 @@
   </header>
 
   <main>
-    <section id="home" class="hero">
-      <div class="hero-content reveal">
-        <h1>Creating <span><i>digital experiences</i></span> with code & design.</h1>
-        <p class="hero-text">
-          Hi, I'm <strong>Lana Mayyasa</strong>. I am a Software Engineering student with a passion for web development, UI/UX design, and emerging technologies. I enjoy transforming creative ideas into thoughtful digital experiences that are both visually refined and functional.
+    <section id="home" class="hero hero-editorial">
+      <div class="hero-topline">
+        <span class="hero-location"><span class="availability-dot"></span> SURABAYA, INDONESIA</span>
+        <span class="hero-index">PORTFOLIO <b>2026</b></span>
+      </div>
 
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">View My Work ↗</a>
-          <a href="#contact" class="btn btn-outline">Contact Me</a>
+      <div class="hero-title-wrap">
+        <div class="hero-title-row hero-title-row-top">
+          <h1><span id="hero-role-top">Full-stack</span></h1>
+          <a href="#projects" class="hero-project-link">
+            <span>Explore Projects</span>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </div>
+        <div class="hero-title-row hero-title-row-bottom">
+          <p class="hero-text">
+            I’m <strong>Lana Mayyasa</strong>, a software engineering student who enjoys building
+            <em>clean, thoughtful</em> digital experiences through code and design.
+          </p>
+          <h1 class="hero-role-bottom" aria-label="Full-stack Developer">
+            <span id="hero-role-bottom">Developer</span><span class="typing-cursor" aria-hidden="true"></span><span class="hero-period">.</span>
+          </h1>
         </div>
       </div>
 
-      <div class="hero-card reveal">
-  <div class="card-glow"></div>
-  <div class="profile-placeholder">
-        <img src="assets/1.jpeg" alt="Lana Mayyasa">
+      <div class="hero-social-row" aria-label="Social media links">
+        <a class="social-pill" href="https://github.com/lanamayyasa10" target="_blank" rel="noopener">
+          <span class="social-symbol">⌘</span> GitHub <span class="pill-arrow">↗</span>
+        </a>
+        <a class="social-pill" href="#about">
+          <span class="social-symbol">✳</span> About me <span class="pill-arrow">↗</span>
+        </a>
+        <a class="social-pill" href="#skills">
+          <span class="social-symbol">⌁</span> My skills <span class="pill-arrow">↗</span>
+        </a>
+        <a class="social-pill" href="https://www.instagram.com/carapherneliaf" target="_blank" rel="noopener">
+          <span class="social-symbol">◎</span> Instagram <span class="pill-arrow">↗</span>
+        </a>
       </div>
+
+      <div class="hero-work-strip">
+        <div class="hero-strip-heading">
+          <span><i></i> A SELECTION OF MY WORK</span>
+          <div class="hero-strip-controls">
+            <button type="button" class="hero-strip-arrow" id="hero-work-prev" aria-label="Project sebelumnya">←</button>
+            <button type="button" class="hero-strip-arrow" id="hero-work-next" aria-label="Project berikutnya">→</button>
+          </div>
+        </div>
+
+        <div class="hero-work-track" id="hero-work-track">
+          <a class="hero-work-card hero-work-card-muted" href="#projects" aria-label="Lihat Class Management System">
+            <div class="hero-mini-window mini-dashboard">
+              <div class="mini-window-top"><i></i><i></i><i></i><span>cms / dashboard</span></div>
+              <div class="mini-dashboard-content">
+                <div class="mini-sidebar"><b>CMS.</b><i></i><i></i><i></i></div>
+                <div class="mini-dash-main"><small>OVERVIEW</small><b>Dashboard</b><div class="mini-stats"><i></i><i></i><i></i></div><div class="mini-chart"><i></i><i></i><i></i><i></i><i></i></div></div>
+              </div>
+            </div>
+            <div class="hero-work-caption"><span>01 / WEB DEVELOPMENT</span><b>Class Management ↗</b></div>
+          </a>
+
+          <a class="hero-work-card hero-work-card-featured" href="#projects" aria-label="Lihat Loka Jawa">
+            <div class="hero-feature-visual">
+              <div class="feature-orb"></div>
+              <span class="feature-kicker">DIGITAL CULTURE EXPERIENCE</span>
+              <strong>Loka<br><i>Jawa.</i></strong>
+              <span class="feature-subtitle">Stories that connect us to our roots.</span>
+            </div>
+            <div class="hero-work-caption"><span>02 / WEB DEVELOPMENT</span><b>Loka Jawa ↗</b></div>
+          </a>
+
+          <a class="hero-work-card hero-work-card-muted" href="#projects" aria-label="Lihat Creative Interface">
+            <div class="hero-mini-window mini-design">
+              <div class="mini-design-label">UI / UX CONCEPT</div>
+              <div class="mini-phone"><small>YOUR BRAND</small><div></div><b>Designed for<br>everyday life.</b><i></i></div>
+            </div>
+            <div class="hero-work-caption"><span>03 / UI & UX DESIGN</span><b>Creative Interface ↗</b></div>
+          </a>
+        </div>
+        <p class="hero-strip-note">SCROLL TO EXPLORE <span>↓</span></p>
       </div>
     </section>
 
@@ -51,71 +113,343 @@
         <p class="eyebrow">01 — ABOUT ME</p>
         <h2>A little about <span><i>me.</i></span></h2>
       </div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            I am deeply exploring the world of technology and software development, with a passion for creating websites that are not only functional, but also visually refined and intuitive to use.
-          </p>
-          <p>
-            At present, I am focusing on expanding my skills in web development, UI/UX design, and emerging technologies. Through every project, I strive to grow as a software engineer while creating digital experiences that are both purposeful and beautifully crafted.
-          </p>
+      
+<div class="about-grid">
+
+  <!-- LEFT: ABOUT TEXT + EDUCATION -->
+  <div class="about-content">
+
+    <div class="about-text reveal">
+      <p>
+        I am deeply exploring the world of technology and software
+        development, with a passion for creating websites that are
+        not only functional, but also visually refined and intuitive to use.
+      </p>
+
+      <p>
+        At present, I am focusing on expanding my skills in web development,
+        UI/UX design, and emerging technologies. Through every project,
+        I strive to grow as a software engineer while creating digital
+        experiences that are both purposeful and beautifully crafted.
+      </p>
+    </div>
+
+    <!-- EDUCATION BELOW ABOUT TEXT -->
+    <div class="info-box reveal">
+      <div>
+        <span>Education</span>
+        <strong>SMKN 10 Surabaya</strong>
+      </div>
+
+      <div>
+        <span>Major</span>
+        <strong>Rekayasa Perangkat Lunak</strong>
+      </div>
+
+      <div>
+        <span>Location</span>
+        <strong>Surabaya, Indonesia</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: ANIMATED LANYARD -->
+  <div class="about-side reveal">
+
+    <div class="lanyard-scene">
+      <p class="lanyard-label">
+        <span class="lanyard-dot"></span>
+        A LITTLE IDENTITY CARD
+      </p>
+
+      <div
+        class="lanyard-hanger"
+        id="lanyard-hanger"
+        role="img"
+        aria-label="Animated identity card. Drag to swing."
+      >
+        <div class="lanyard-strap">
+          <span class="strap-ribbon"></span>
+          <span class="strap-clip"></span>
         </div>
-        <div class="info-box reveal">
-          <div><span>Education</span><strong>SMKN 10 Surabaya</strong></div>
-          <div><span>Major</span><strong>Rekayasa Perangkat Lunak</strong></div>
-          <div><span>Location</span><strong>Surabaya, Indonesia</strong></div>
+
+        <div class="lanyard-card">
+          <div class="lanyard-card-top">
+            <span>PERSONAL PORTFOLIO</span>
+            <span class="lanyard-star">✳</span>
+          </div>
+
+          <div class="lanyard-avatar">LM</div>
+
+          <h3>Lana Mayyasa</h3>
+
+          <p class="lanyard-role">
+            WEB DEVELOPER<br>
+            <span>UI / UX DESIGNER</span>
+          </p>
+
+          <div class="lanyard-card-bottom">
+            <span>SURABAYA, INDONESIA</span>
+            <span class="lanyard-code">▦</span>
+          </div>
         </div>
       </div>
+
+      <p class="lanyard-hint">↔ DRAG TO SWING</p>
+    </div>
+
+  </div>
+
+</div>
+
     </section>
 
-    <section id="skills" class="section dark-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">02 — SKILLS</p>
-        <h2>Tools I <span><i>work with.</i></span></h2>
+    
+<section id="skills" class="section dark-section skills-showcase">
+
+  <div class="section-heading reveal">
+    <p class="eyebrow">02 — SKILLS</p>
+    <h2>My core <span><i>technologies.</i></span></h2>
+    <p class="skills-subtitle">
+      The tools I use to turn ideas into digital experiences.
+    </p>
+  </div>
+
+  <div class="skills-layout">
+
+    <!-- TECHNOLOGY ICON GRID -->
+    <div class="tech-panel">
+      <div class="tech-panel-header">
+        <span><i class="status-dot"></i> CORE TECH STACK</span>
+        <span class="hover-label">HOVER TO EXPLORE ↗</span>
       </div>
-      <div class="skills-grid">
-        <div class="skill reveal"><b>01</b><h3>HTML & CSS</h3><p>Building responsive and structured websites.</p></div>
-        <div class="skill reveal"><b>02</b><h3>JavaScript</h3><p>Adding interaction and dynamic features.</p></div>
-        <div class="skill reveal"><b>03</b><h3>PHP & Laravel</h3><p>Developing web applications and CRUD systems.</p></div>
-        <div class="skill reveal"><b>04</b><h3>UI / UX Design</h3><p>Designing interfaces that are clean and easy to use.</p></div>
+
+      <div class="tech-grid">
+
+        <button class="tech-item is-active"
+          type="button" data-skill="html" aria-pressed="true">
+          <span class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              alt="HTML5">
+          </span>
+          <span class="tech-name">HTML5</span>
+          <span class="tech-arrow">↗</span>
+        </button>
+
+        <button class="tech-item"
+          type="button" data-skill="css" aria-pressed="false">
+          <span class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS3">
+          </span>
+          <span class="tech-name">CSS3</span>
+          <span class="tech-arrow">↗</span>
+        </button>
+
+        <button class="tech-item"
+          type="button" data-skill="javascript" aria-pressed="false">
+          <span class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              alt="JavaScript">
+          </span>
+          <span class="tech-name">JavaScript</span>
+          <span class="tech-arrow">↗</span>
+        </button>
+
+        <button class="tech-item"
+          type="button" data-skill="php" aria-pressed="false">
+          <span class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+              alt="PHP">
+          </span>
+          <span class="tech-name">PHP</span>
+          <span class="tech-arrow">↗</span>
+        </button>
+
+        <button class="tech-item"
+          type="button" data-skill="laravel" aria-pressed="false">
+          <span class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+              alt="Laravel">
+          </span>
+          <span class="tech-name">Laravel</span>
+          <span class="tech-arrow">↗</span>
+        </button>
+
+        <button class="tech-item"
+          type="button" data-skill="figma" aria-pressed="false">
+          <span class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+              alt="Figma">
+          </span>
+          <span class="tech-name">Figma</span>
+          <span class="tech-arrow">↗</span>
+        </button>
+
       </div>
-    </section>
+    </div>
+
+    <!-- INTERACTIVE SKILL DETAIL -->
+    <div class="skill-detail" aria-live="polite">
+
+      <div class="detail-header">
+        <span id="skill-category">FRONTEND DEVELOPMENT</span>
+        <span id="skill-index">01 / 06</span>
+      </div>
+
+      <div class="detail-main">
+        <div class="detail-icon">
+          <img id="skill-detail-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            alt="">
+        </div>
+
+        <h3 id="skill-detail-title">HTML5</h3>
+
+        <p id="skill-detail-description">
+          Building structured, semantic, and accessible web pages.
+        </p>
+
+        <div class="detail-tags" id="skill-detail-tags">
+          <span>Semantic HTML</span>
+          <span>Web Structure</span>
+        </div>
+      </div>
+
+      <div class="detail-footer">
+        <span>MY CURRENT FOCUS</span>
+        <span id="skill-detail-status">CORE FOUNDATION</span>
+      </div>
+
+      <div class="detail-decoration" aria-hidden="true">✳</div>
+    </div>
+
+  </div>
+
+  <!-- SKILL AREAS -->
+  <div class="skill-focus-section reveal">
+    <div class="focus-heading">
+      <div>
+        <p class="eyebrow">SKILL AREAS</p>
+        <h3>What I'm <i>building.</i></h3>
+      </div>
+      <span class="focus-caption">LEARNING BY CREATING</span>
+    </div>
+
+    <div class="focus-grid">
+
+      <article class="focus-card">
+        <span class="focus-number">01</span>
+        <h4>Frontend Development</h4>
+        <p>Creating structured, responsive, and interactive websites.</p>
+        <div class="focus-tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <span class="focus-status">CORE FOUNDATION</span>
+      </article>
+
+      <article class="focus-card">
+        <span class="focus-number">02</span>
+        <h4>Backend Development</h4>
+        <p>Learning to build application logic and manage web data.</p>
+        <div class="focus-tags">
+          <span>PHP</span><span>Laravel</span><span>CRUD</span>
+        </div>
+        <span class="focus-status">BUILDING PROJECTS</span>
+      </article>
+
+      <article class="focus-card">
+        <span class="focus-number">03</span>
+        <h4>UI / UX Design</h4>
+        <p>Designing interfaces with attention to usability and visual hierarchy.</p>
+        <div class="focus-tags">
+          <span>Figma</span><span>UI Design</span><span>Prototyping</span>
+        </div>
+        <span class="focus-status">DESIGN PRACTICE</span>
+      </article>
+
+    </div>
+  </div>
+
+</section>
+
 
     <section id="projects" class="section">
       <div class="section-heading reveal">
         <p class="eyebrow">03 — PROJECTS</p>
         <h2>Selected <span><i>works.</i></span></h2>
       </div>
-      <div class="projects-grid">
-        <article class="project reveal">
-          <div class="project-image project-one"><span>PROJECT 01</span></div>
-          <div class="project-body">
-            <p class="project-type">WEB DEVELOPMENT</p>
-            <h3>Class Management System</h3>
-            <p>A class management dashboard featuring data recapitulation and CRUD functionality, built using the MVC architecture.</p>
-            <div class="tags"><span>PHP</span><span>MVC</span><span>CRUD</span></div>
-          </div>
-        </article>
+      <div class="project-switcher reveal">
+        <div class="project-tabs" role="tablist" aria-label="Pilih kategori project">
+          <button class="project-tab active" id="web-tab" type="button" role="tab"
+            aria-selected="true" aria-controls="web-projects" data-project="web">
+            <span class="tab-number">01</span>
+            <span class="tab-label">Web Projects</span>
+            <span class="tab-count">02</span>
+          </button>
+          <button class="project-tab" id="design-tab" type="button" role="tab"
+            aria-selected="false" aria-controls="design-projects" data-project="design" tabindex="-1">
+            <span class="tab-number">02</span>
+            <span class="tab-label">Design Projects</span>
+            <span class="tab-count">01</span>
+          </button>
+          <span class="tabs-indicator" aria-hidden="true"></span>
+        </div>
+        <div class="project-hint"><span class="swipe-icon">↔</span> Choose a category or swipe to explore</div>
+      </div>
 
-        <article class="project reveal">
-          <div class="project-image project-two"><span>PROJECT 02</span></div>
-          <div class="project-body">
-            <p class="project-type">UI / UX DESIGN</p>
-            <h3>Creative Interface</h3>
-            <p>Konsep desain interface modern dengan fokus pada visual, hierarchy, dan user experience.</p>
-            <div class="tags"><span>Figma</span><span>UI Design</span><span>UX</span></div>
+      <div class="project-stage" id="project-stage" aria-live="polite">
+        <div class="projects-panel active" id="web-projects" role="tabpanel" aria-labelledby="web-tab" data-panel="web">
+          <div class="projects-grid">
+            <article class="project">
+              <div class="project-image project-one"><span>PROJECT 01 <b>↗</b></span></div>
+              <div class="project-body">
+                <p class="project-type">WEB DEVELOPMENT</p>
+                <h3>Class Management System</h3>
+                <p>A class management dashboard featuring data recapitulation and CRUD functionality, built using the MVC architecture.</p>
+                <div class="tags"><span>PHP</span><span>MVC</span><span>CRUD</span></div>
+              </div>
+            </article>
+            <article class="project">
+              <div class="project-image project-three"><span>PROJECT 02 <b>↗</b></span></div>
+              <div class="project-body">
+                <p class="project-type">WEB DEVELOPMENT</p>
+                <h3>Loka Jawa</h3>
+                <p>An interactive cultural storytelling website designed to explore traditional stories through an engaging digital interface.</p>
+                <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
 
-        <article class="project reveal">
-          <div class="project-image project-three"><span>PROJECT 03</span></div>
-          <div class="project-body">
-            <p class="project-type">WEB DEVELOPMENT</p>
-            <h3>Loka Jawa</h3>
-            <p>An interactive cultural storytelling website designed to explore and experience a collection of traditional stories through an engaging digital interface.</p>
-            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <div class="projects-panel" id="design-projects" role="tabpanel" aria-labelledby="design-tab" data-panel="design" hidden>
+          <div class="projects-grid design-grid">
+            <article class="project">
+              <div class="project-image project-two"><span>DESIGN 01 <b>↗</b></span></div>
+              <div class="project-body">
+                <p class="project-type">UI / UX DESIGN</p>
+                <h3>Creative Interface</h3>
+                <p>A modern interface concept focused on visual hierarchy, thoughtful layouts, and a smooth user experience.</p>
+                <div class="tags"><span>Figma</span><span>UI Design</span><span>UX</span></div>
+              </div>
+            </article>
+            <div class="design-note">
+              <span class="design-note-icon">✳</span>
+              <p class="eyebrow">DESIGN PHILOSOPHY</p>
+              <h3>Useful, clear, <i>and human.</i></h3>
+              <p>I turn ideas into interfaces that feel intuitive, consistent, and enjoyable to use.</p>
+              <span class="note-index">A little intention goes a long way.</span>
+            </div>
           </div>
-        </article>
+        </div>
+      </div>
+      <div class="project-navigation">
+        <span class="project-current"><b id="project-current-number">01</b> / 02</span>
+        <div class="project-arrows">
+          <button type="button" class="project-arrow" id="project-prev" aria-label="Kategori sebelumnya">←</button>
+          <button type="button" class="project-arrow" id="project-next" aria-label="Kategori berikutnya">→</button>
+        </div>
       </div>
     </section>
 
@@ -134,7 +468,7 @@
   </main>
 
   <footer>
-    <p>© 2026 Your Name. Designed & built with care.</p>
+    <p>© 2026 Lana Mayyasa. Designed & built with care.</p>
   </footer>
 
   <script src="script.js"></script>
