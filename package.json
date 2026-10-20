@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@react-three/rapier": "^2.2.0",
+    "meshline": "^3.3.1",
+    "three": "^0.186.1"
+  }
+}

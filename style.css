@@ -3000,3 +3000,209 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   display: none !important;
 }
 
+/* ===== LANYARD REACT BITS INSIDE ABOUT CARD ===== */
+
+.about-side {
+  min-width: 0;
+}
+
+.lanyard-scene {
+  position: relative;
+  width: 100%;
+  max-width: 570px;
+  min-height: 470px;
+  padding: 18px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 70% 35%,
+      rgba(128, 25, 57, 0.15),
+      transparent 48%
+    ),
+    #0c0b0c;
+}
+
+.lanyard-label {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 0 0 8px;
+  color: #b49aa4;
+
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.lanyard-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: #a52a50;
+  box-shadow: 0 0 12px rgba(165, 42, 80, 0.5);
+}
+
+.lanyard-embed-box {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border: 1px dashed rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  background: transparent;
+}
+
+.lanyard-embed-box iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.lanyard-hint {
+  margin: 10px 0 0;
+  color: #987785;
+  text-align: right;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+.about-side {
+  min-width: 0;
+}
+
+.lanyard-scene {
+  position: relative;
+  width: 100%;
+  max-width: 640px;   /* sebelumnya 570px */
+  min-height: 620px;  /* sebelumnya 470px */
+  padding: 20px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 26px;
+
+  background:
+    radial-gradient(
+      circle at 70% 35%,
+      rgba(128, 25, 57, 0.15),
+      transparent 48%
+    ),
+    #0c0b0c;
+}
+
+.lanyard-label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 10px;
+  color: #b49aa4;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  transform: translateY(-6px);
+}
+
+.lanyard-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #a52a50;
+  box-shadow: 0 0 12px rgba(165, 42, 80, 0.5);
+}
+
+.lanyard-embed-box {
+  position: relative;
+  width: 100%;
+  height: 520px;   /* sebelumnya 380px */
+  overflow: hidden;
+  border: 1px dashed rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  background: transparent;
+}
+
+.lanyard-embed-box iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.lanyard-hint {
+  margin: 12px 0 0;
+  color: #987785;
+  text-align: right;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+
+}
+
+@media (max-width: 768px) {
+  
+/* ===== CLEAN LANYARD FRAME: SINGLE BORDER ===== */
+
+/* Pertahankan satu kotak luar */
+.lanyard-scene {
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hilangkan garis kotak dekoratif bertumpuk */
+.lanyard-scene::before,
+.lanyard-scene::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Hilangkan garis kotak di dalam iframe */
+.lanyard-embed-box {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+/* Pastikan iframe tetap transparan */
+.lanyard-embed-box iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+}
+
+}
+
+
+/* Naikkan posisi tulisan identity card */
+.lanyard-scene .lanyard-label {
+  position: relative !important;
+  top: -1px !important;
+  transform: none !important;
+}
+
+

@@ -1,0 +1,74 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1440" viewBox="0 0 1024 1440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#30121f"/>
+      <stop offset="55%" stop-color="#160f14"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c66b87"/>
+      <stop offset="100%" stop-color="#7b1738"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1440" rx="55" fill="url(#bg)"/>
+  <rect x="28" y="28" width="968" height="1384" rx="40"
+    fill="none" stroke="#9e4966" stroke-width="3"/>
+
+  <circle cx="850" cy="300" r="260" fill="#80203d" opacity=".18"/>
+  <circle cx="850" cy="300" r="180" fill="none"
+    stroke="#c66b87" stroke-width="2" opacity=".4"/>
+
+  <text x="85" y="115" fill="#dca0b3"
+    font-family="Arial,sans-serif" font-size="30"
+    letter-spacing="8">PERSONAL PORTFOLIO</text>
+
+  <rect x="85" y="170" width="115" height="9" rx="4"
+    fill="url(#accent)"/>
+
+  <defs>
+  <clipPath id="photoClip">
+    <rect x="85" y="290" width="220" height="220" rx="38"/>
+  </clipPath>
+</defs>
+
+<rect x="85" y="290" width="220" height="220" rx="38"
+  fill="#26131d" stroke="#a64c6a" stroke-width="3"/>
+
+<image
+  href="lan.png"
+  x="85"
+  y="290"
+  width="220"
+  height="220"
+  preserveAspectRatio="xMidYMid slice"
+  clip-path="url(#photoClip)"
+/>
+
+  <text x="85" y="680" fill="#ffffff"
+    font-family="Arial,sans-serif" font-size="94"
+    font-weight="bold" letter-spacing="-3">LANA</text>
+
+  <text x="85" y="775" fill="#dba0b4"
+    font-family="Arial,sans-serif" font-size="68"
+    letter-spacing="2">MAYYASA</text>
+
+  <text x="85" y="880" fill="#bcaab2"
+    font-family="Arial,sans-serif" font-size="31"
+    letter-spacing="4">FULL-STACK DEVELOPER</text>
+
+  <text x="85" y="930" fill="#bcaab2"
+    font-family="Arial,sans-serif" font-size="31"
+    letter-spacing="4">UI/UX DESIGNER</text>
+
+  <path d="M85 1030 H939" stroke="#603043" stroke-width="2"/>
+
+  <text x="85" y="1100" fill="#dba0b4"
+    font-family="Arial,sans-serif" font-size="25"
+    letter-spacing="5">DESIGN • CODE • CREATE</text>
+
+  <text x="85" y="1320" fill="#8c6a79"
+    font-family="Arial,sans-serif" font-size="24"
+    letter-spacing="4">CREATIVE DEVELOPER / 2026</text>
+</svg>
