@@ -3,7 +3,7 @@ import Lanyard from './components/Lanyard'
 import './App.css'
 
 function App() {
-  const frontUrl = `${import.meta.env.BASE_URL}lan.png`
+  const frontUrl = `${import.meta.env.BASE_URL}lan.png?v=3`
   const backUrl = `${import.meta.env.BASE_URL}lana-card.svg`
 
   return (
