@@ -2993,3 +2993,10 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 .skill-detail .detail-decoration {
   display: none !important;
 }
+
+/* FIX: Remove oversized green emoji on mobile */
+.contact-form-decoration,
+.skill-detail .detail-decoration {
+  display: none !important;
+}
+
