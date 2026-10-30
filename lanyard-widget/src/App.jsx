@@ -2,8 +2,8 @@ import Lanyard from './components/Lanyard'
 import './App.css'
 
 function App() {
-  const frontUrl = `${import.meta.env.BASE_URL}lana-front.svg?v8`
-  const backUrl = `${import.meta.env.BASE_URL}lana-card.svg?v8`
+  const frontUrl = `${import.meta.env.BASE_URL}lana-front.svg?v11`
+  const backUrl = `${import.meta.env.BASE_URL}lana-card.svg?v11`
 
   return (
     <main className="lanyard-embed">
