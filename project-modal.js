@@ -1,13 +1,9 @@
-/* =========================================================
-   PROJECT DETAIL MODAL
-   Desktop/Mobile gallery, auto slideshow, manual controls
-========================================================= */
-
 (() => {
   "use strict";
 
   function initProjectModal() {
     const modal = document.getElementById("project-modal");
+
     if (!modal || modal.dataset.initialized === "true") return;
 
     const closeButton = document.getElementById("modal-close");
@@ -51,6 +47,92 @@
     modal.hidden = true;
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
+    modal.dataset.preview = "desktop";
+
+    // Menambahkan frame tanpa perlu mengubah index.html.
+    const device = document.createElement("div");
+    device.className = "modal-device";
+
+    const screen = document.createElement("div");
+    screen.className = "modal-device-screen";
+    screen.append(modalImage, imagePlaceholder);
+
+    device.append(screen);
+    imageWrapper.prepend(device);
+
+    // Satu area scroll untuk konten pada layar ponsel.
+    const content = document.createElement("div");
+    content.className = "modal-content";
+
+    const gallery = modal.querySelector(".modal-gallery");
+    const information = modal.querySelector(".modal-information");
+
+    gallery.before(content);
+    content.append(gallery, information);
+
+    // SVG agar bentuk ikon konsisten di berbagai perangkat.
+    const iconPaths = {
+      desktop: "M3 4h18v13H3z M8 21h8 M12 17v4",
+      mobile: "M7 2h10v20H7z M10 19h4",
+      close: "M5 5l14 14 M19 5L5 19",
+      previous: "M15 4l-8 8 8 8",
+      next: "M9 4l8 8-8 8",
+      external: "M7 17L17 7 M7 7h10v10"
+    };
+
+    function makeIcon(name) {
+      const svg = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg"
+      );
+
+      svg.setAttribute("viewBox", "0 0 24 24");
+      svg.setAttribute("fill", "none");
+      svg.setAttribute("stroke", "currentColor");
+      svg.setAttribute("stroke-width", "1.8");
+      svg.setAttribute("stroke-linecap", "round");
+      svg.setAttribute("stroke-linejoin", "round");
+      svg.setAttribute("aria-hidden", "true");
+
+      const path = document.createElementNS(svg.namespaceURI, "path");
+      path.setAttribute("d", iconPaths[name]);
+
+      svg.append(path);
+      return svg;
+    }
+
+    viewButtons.forEach(button => {
+      button.querySelector("span")?.replaceChildren(
+        makeIcon(button.dataset.view)
+      );
+    });
+
+    closeButton.replaceChildren(makeIcon("close"));
+    galleryPrev.replaceChildren(makeIcon("previous"));
+    galleryNext.replaceChildren(makeIcon("next"));
+
+    const githubIcon = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "svg"
+    );
+
+    githubIcon.setAttribute("viewBox", "0 0 24 24");
+    githubIcon.setAttribute("aria-hidden", "true");
+    githubIcon.classList.add("github-icon");
+
+    const githubPath = document.createElementNS(
+      githubIcon.namespaceURI,
+      "path"
+    );
+
+    githubPath.setAttribute(
+      "d",
+      "M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.974-.015-1.912-3.13.68-3.79-1.508-3.79-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.699.078-.684.078-.684 1.13.08 1.724 1.16 1.724 1.16 1.004 1.72 2.633 1.223 3.275.935.102-.727.393-1.223.715-1.504-2.5-.285-5.127-1.25-5.127-5.563 0-1.23.44-2.233 1.16-3.021-.116-.285-.503-1.43.11-2.98 0 0 .945-.303 3.094 1.155a10.78 10.78 0 0 1 5.63 0c2.148-1.458 3.09-1.155 3.09-1.155.616 1.55.229 2.695.113 2.98.723.788 1.158 1.791 1.158 3.021 0 4.325-2.63 5.275-5.137 5.553.404.35.764 1.043.764 2.1 0 1.516-.014 2.74-.014 3.112 0 .3.203.65.774.54A11.252 11.252 0 0 0 12 .75Z"
+    );
+
+    githubIcon.append(githubPath);
+    modalLink.prepend(githubIcon);
+    modalLink.querySelector("b")?.replaceChildren(makeIcon("external"));
 
     const makeImages = (folder, prefix, total, label) =>
       Array.from({ length: total }, (_, index) => ({
@@ -58,23 +140,21 @@
         alt: `${label} ${index + 1}`
       }));
 
-    /* Data proyek mengikuti judul, deskripsi, dan teknologi
-       yang sudah tercantum pada kartu proyek di portfolio. */
     const projects = {
       cms: {
         number: "01",
         title: "Class Management System",
         category: "WEB DEVELOPMENT",
         description:
-          "A class management dashboard designed to organise class data, simplify recapitulation, and support CRUD operations.",
+          "Aplikasi pengelolaan data kelas dan kehadiran siswa yang mempermudah administrasi sekolah.",
         overview:
-          "A web-based application designed to help administrators manage class information and student attendance through an organised dashboard.",
-        technologies: ["PHP", "MVC", "CRUD"],
+          "Aplikasi berbasis web untuk mengelola data kelas, kehadiran, dan rekapitulasi secara efisien dengan fitur CRUD.",
+        technologies: ["PHP", "MySQL", "CSS"],
         features: [
           "Dashboard administrasi",
-          "Pengelolaan data siswa",
-          "Pengelolaan data kelas",
-          "Rekapitulasi data"
+          "Manajemen data siswa & kelas",
+          "Rekapitulasi kehadiran",
+          "Operasi CRUD"
         ],
         views: {
           desktop: makeImages("cms", "desktop", 8, "CMS Desktop Screenshot"),
@@ -99,7 +179,6 @@
           "Traditional stories",
           "Indonesian cultural heritage"
         ],
-        /* Add the Loka Jawa screenshots when they are available. */
         views: {
           desktop: [],
           mobile: []
@@ -124,7 +203,6 @@
           "Interface design",
           "User experience exploration"
         ],
-        /* Add the Creative Interface screenshots when they are available. */
         views: {
           desktop: [],
           mobile: []
@@ -163,6 +241,7 @@
       stopAutoSlide();
 
       const images = currentImages();
+
       if (!modal.classList.contains("active")) return;
       if (document.hidden || images.length <= 1) return;
 
@@ -176,6 +255,7 @@
       imagePlaceholder.hidden = false;
 
       const paragraph = imagePlaceholder.querySelector("p");
+
       if (paragraph) paragraph.textContent = message;
     }
 
@@ -184,7 +264,10 @@
 
       const images = currentImages();
 
-      imageWrapper.classList.toggle("mobile-view", activeView === "mobile");
+      imageWrapper.classList.toggle(
+        "mobile-view",
+        activeView === "mobile"
+      );
 
       if (images.length === 0) {
         currentImageIndex = 0;
@@ -194,7 +277,9 @@
         galleryNext.disabled = true;
 
         setPlaceholder(
-          `Screenshot ${activeView === "desktop" ? "Desktop" : "Mobile"} untuk proyek ini belum ditambahkan.`
+          `Screenshot ${
+            activeView === "desktop" ? "Desktop" : "Mobile"
+          } untuk proyek ini belum ditambahkan.`
         );
         return;
       }
@@ -205,6 +290,7 @@
 
       galleryCurrent.textContent =
         String(currentImageIndex + 1).padStart(2, "0");
+
       galleryTotal.textContent =
         String(images.length).padStart(2, "0");
 
@@ -222,7 +308,10 @@
 
       modalImage.onerror = () => {
         modalImage.classList.remove("changing");
-        setPlaceholder("File screenshot tidak ditemukan. Periksa nama dan lokasi gambar di folder assets/projects.");
+
+        setPlaceholder(
+          "File screenshot tidak ditemukan. Periksa nama dan lokasi gambar di folder assets/projects."
+        );
       };
 
       modalImage.src = image.src;
@@ -230,6 +319,7 @@
 
     function moveImage(direction) {
       if (!activeProject || currentImages().length <= 1) return;
+
       showImage(currentImageIndex + direction);
       startAutoSlide();
     }
@@ -238,9 +328,11 @@
       if (!activeProject || !["desktop", "mobile"].includes(view)) return;
 
       activeView = view;
+      modal.dataset.preview = view;
 
       viewButtons.forEach(button => {
         const selected = button.dataset.view === activeView;
+
         button.classList.toggle("active", selected);
         button.setAttribute("aria-pressed", String(selected));
       });
@@ -288,6 +380,7 @@
 
     function openProject(projectKey, trigger) {
       const project = projects[projectKey];
+
       if (!project) {
         console.warn(`Data proyek "${projectKey}" tidak ditemukan.`);
         return;
@@ -301,12 +394,16 @@
       activeProject = project;
       previousTrigger = trigger;
       activeView = "desktop";
+      modal.dataset.preview = "desktop";
       currentImageIndex = 0;
+      content.scrollTop = 0;
+      information.scrollTop = 0;
 
       fillProjectInformation(project);
 
       viewButtons.forEach(button => {
         const selected = button.dataset.view === "desktop";
+
         button.classList.toggle("active", selected);
         button.setAttribute("aria-pressed", String(selected));
       });
@@ -331,6 +428,7 @@
       if (modal.hidden || !modal.classList.contains("active")) return;
 
       stopAutoSlide();
+
       modal.classList.remove("active");
       modal.setAttribute("aria-hidden", "true");
       document.body.classList.remove("project-modal-open");
@@ -347,36 +445,35 @@
       }, 300);
     }
 
-    /* Project card buttons */
-    document.querySelectorAll(".project-card-link[data-project]").forEach(button => {
+    // Tombol pada kartu proyek.
+    document.querySelectorAll(
+      ".project-card-link[data-project]"
+    ).forEach(button => {
       button.addEventListener("click", () => {
         openProject(button.dataset.project, button);
       });
     });
 
-    /* Desktop / Mobile switch */
+    // Pilihan tampilan desktop / mobile.
     viewButtons.forEach(button => {
       button.addEventListener("click", () => {
         setActiveView(button.dataset.view);
       });
     });
 
-    /* Manual arrows */
     galleryPrev.addEventListener("click", () => moveImage(-1));
     galleryNext.addEventListener("click", () => moveImage(1));
 
-    /* Close actions */
     closeButton.addEventListener("click", closeProject);
     overlay.addEventListener("click", closeProject);
 
-    /* Close the modal before navigating to Contact for Creative Interface. */
     modalLink.addEventListener("click", () => {
       if (activeProject && !activeProject.external) {
         closeProject();
       }
     });
 
-    /* Keyboard controls and focus trap */
+    // Navigasi keyboard dan penjagaan fokus di dalam modal.
     document.addEventListener("keydown", event => {
       if (modal.hidden || !modal.classList.contains("active")) return;
 
@@ -420,9 +517,10 @@
       }
     });
 
-    /* Touch swipe on the preview image */
+    // Swipe pada area preview.
     imageWrapper.addEventListener("touchstart", event => {
       if (!event.changedTouches.length) return;
+
       touchStartX = event.changedTouches[0].clientX;
       touchStartY = event.changedTouches[0].clientY;
     }, { passive: true });
@@ -433,12 +531,15 @@
       const deltaX = event.changedTouches[0].clientX - touchStartX;
       const deltaY = event.changedTouches[0].clientY - touchStartY;
 
-      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+      if (
+        Math.abs(deltaX) > 45 &&
+        Math.abs(deltaX) > Math.abs(deltaY) * 1.2
+      ) {
         moveImage(deltaX < 0 ? 1 : -1);
       }
     }, { passive: true });
 
-    /* Pause slideshow while the browser tab is not visible */
+    // Hentikan slideshow saat tab browser tidak terlihat.
     document.addEventListener("visibilitychange", () => {
       if (!modal.classList.contains("active")) return;
 
@@ -453,7 +554,11 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initProjectModal, { once: true });
+    document.addEventListener(
+      "DOMContentLoaded",
+      initProjectModal,
+      { once: true }
+    );
   } else {
     initProjectModal();
   }
