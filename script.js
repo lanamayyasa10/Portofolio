@@ -409,7 +409,7 @@ document.querySelector("#hero-work-next")?.addEventListener("click", () => {
   if (!form || !note) return;
 
   // GANTI dengan alamat email kamu yang sebenarnya.
-  const recipient = "YOUR_EMAIL@example.com";
+  const recipient = "lanamayyasa10@gmail.com";
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();

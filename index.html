@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="project-modal.css?v=20261116-6">
 </head>
 <body>
 
@@ -380,9 +381,9 @@
         aria-controls="web-projects"
         data-project="web">
 
-        <span class="tab-number">01</span>
+        
         <span class="tab-label">Web Development</span>
-        <span class="tab-count">02</span>
+        
       </button>
 
       <button class="project-tab"
@@ -394,9 +395,7 @@
         data-project="design"
         tabindex="-1">
 
-        <span class="tab-number">02</span>
         <span class="tab-label">UI / UX Design</span>
-        <span class="tab-count">01</span>
       </button>
 
     </div>
@@ -481,11 +480,16 @@
               <span>CRUD</span>
             </div>
 
-            <a class="project-card-link" href="#contact">
-              <span>Discuss this project</span>
-              <b>↗</b>
-            </a>
-
+            <button
+  type="button"
+  class="project-card-link"
+  data-project="cms"
+  aria-haspopup="dialog"
+  aria-controls="project-modal"
+>
+  <span>Lihat selengkapnya</span>
+  <b>↗</b>
+</button>
           </div>
         </article>
 
@@ -539,10 +543,16 @@
               <span>JavaScript</span>
             </div>
 
-            <a class="project-card-link" href="#contact">
-              <span>Discuss this project</span>
-              <b>↗</b>
-            </a>
+            <button
+  type="button"
+  class="project-card-link"
+  data-project="loka"
+  aria-haspopup="dialog"
+  aria-controls="project-modal"
+>
+  <span>Lihat selengkapnya</span>
+  <b>↗</b>
+</button>
 
           </div>
         </article>
@@ -615,10 +625,16 @@
               <span>Prototyping</span>
             </div>
 
-            <a class="project-card-link" href="#contact">
-              <span>Discuss this design</span>
-              <b>↗</b>
-            </a>
+            <button
+  type="button"
+  class="project-card-link"
+  data-project="creative"
+  aria-haspopup="dialog"
+  aria-controls="project-modal"
+>
+  <span>Lihat selengkapnya</span>
+  <b>↗</b>
+</button>
 
           </div>
         </article>
@@ -852,6 +868,217 @@
   <footer>
     <p>© 2026 Lana Mayyasa. Designed & built with care.</p>
   </footer>
+  <!-- =================================
+     PROJECT DETAIL MODAL
+================================== -->
+
+<div class="project-modal" id="project-modal" aria-hidden="true" hidden>
+
+  <!-- Background overlay -->
+  <div class="project-modal-overlay"></div>
+
+  <!-- Main modal -->
+  <div
+    class="project-modal-container"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    tabindex="-1"
+  >
+
+    <!-- Close button -->
+    <button
+      type="button"
+      class="project-modal-close"
+      id="modal-close"
+      aria-label="Close modal"
+    >
+      &times;
+    </button>
+
+
+    <!-- LEFT SIDE: PROJECT GALLERY -->
+    <div class="modal-gallery">
+
+      <div class="modal-gallery-heading">
+        <span>PROJECT PREVIEW</span>
+        <span id="modal-category">WEB DEVELOPMENT</span>
+      </div>
+
+      <!-- Desktop / Mobile Switch -->
+      <div class="preview-switch">
+
+        <button
+          type="button"
+          class="preview-switch-btn active"
+          data-view="desktop"
+          aria-pressed="true"
+        >
+          <span>▣</span>
+          Desktop
+        </button>
+
+        <button
+          type="button"
+          class="preview-switch-btn"
+          data-view="mobile"
+          aria-pressed="false"
+        >
+          <span>▯</span>
+          Mobile
+        </button>
+
+      </div>
+
+      <!-- Image Gallery -->
+      <div class="modal-image-wrapper">
+
+        <img
+          src="assets/projects/cms/desktop-1.png"
+          alt="Project preview"
+          id="modal-image"
+        >
+
+        <div class="modal-image-placeholder" id="modal-image-placeholder" hidden>
+          <span class="placeholder-symbol">✳</span>
+          <strong>Project preview belum tersedia</strong>
+          <p>Screenshot untuk tampilan ini belum ditambahkan.</p>
+        </div>
+
+        <!-- Previous -->
+        <button
+          type="button"
+          class="gallery-arrow gallery-prev"
+          id="gallery-prev"
+          aria-label="Previous image"
+        >
+          &#10094;
+        </button>
+
+        <!-- Next -->
+        <button
+          type="button"
+          class="gallery-arrow gallery-next"
+          id="gallery-next"
+          aria-label="Next image"
+        >
+          &#10095;
+        </button>
+
+      </div>
+
+      <!-- Image Counter -->
+      <div class="gallery-counter" aria-live="polite">
+        <span id="gallery-current">01</span>/<span id="gallery-total">04</span>
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE: PROJECT INFORMATION -->
+    <div class="modal-information">
+
+      <div class="modal-info-topline">
+        <span id="modal-number">01 / PROJECT</span>
+        <span class="modal-status">SELECTED WORK</span>
+      </div>
+
+      <p class="modal-eyebrow" id="modal-eyebrow">
+        WEB DEVELOPMENT
+      </p>
+
+      <h2 id="modal-title">
+        Class Management System
+      </h2>
+
+      <p
+        class="modal-description"
+        id="modal-description"
+      >
+        A class management dashboard designed to organise
+        class data, simplify recapitulation, and support
+        CRUD operations.
+      </p>
+
+
+      <!-- Technologies -->
+      <div class="modal-info-section">
+
+        <h3>Technologies Used</h3>
+
+        <div
+          class="modal-tags"
+          id="modal-technologies"
+        >
+          <span>PHP</span>
+          <span>MVC</span>
+          <span>CRUD</span>
+        </div>
+
+      </div>
+
+
+      <!-- Features -->
+      <div class="modal-info-section">
+
+        <h3>Key Features</h3>
+
+        <ul
+          class="modal-features"
+          id="modal-features"
+        >
+          <li>Dashboard administrasi</li>
+          <li>Pengelolaan data siswa</li>
+          <li>Pengelolaan data kelas</li>
+          <li>Rekapitulasi data</li>
+        </ul>
+
+      </div>
+
+
+      <!-- Project Overview -->
+      <div class="modal-info-section">
+
+        <h3>Project Overview</h3>
+
+        <p
+          class="modal-overview"
+          id="modal-overview"
+        >
+          A web-based application designed to help
+          administrators manage class information
+          and student attendance.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM: GITHUB BUTTON -->
+    <div class="modal-footer">
+
+      <a
+        href="https://github.com/lanamayyasa10/Daftar-Hadir-Program"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="modal-github-button"
+        id="modal-project-link"
+      >
+        <span id="modal-link-label">
+          View Source Code on GitHub
+        </span>
+
+        <b>↗</b>
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
 <script src="script.js"></script>
+<script src="project-modal.js"></script>
 </body>
 </html>

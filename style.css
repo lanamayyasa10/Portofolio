@@ -9,7 +9,7 @@
   --black-soft: #101010;
   --maroon: #800020;
   --maroon-dark: #4a0e19;
-  --maroon-light: #a52a42;
+  --maroon-light: #A52A42;
   --white: #f5f3f3;
   --muted: #aaa4a5;
   --line: rgba(255,255,255,.10);
@@ -523,7 +523,7 @@ footer {
   border-radius: 50%;
   font-size: .7rem;
 }
-.project-tab.active .tab-count { border-color: rgba(165,42,66,.6); color: #f1b4c0; }
+.project-tab.active .tab-count { border-color: rgba(165,42,66,.6); color: var(--maroon-light); }
 .project-hint {
   display: flex;
   align-items: center;
@@ -723,7 +723,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   line-height: 1.65;
 }
 .hero-text strong { color: var(--white); font-weight: 600; }
-.hero-text em { color: #e1c5cc; font-family: "Instrument Serif", serif; font-size: 1.15em; }
+.hero-text em { color: var(--maroon-light); font-family: "Instrument Serif", serif; font-size: 1.15em; }
 .hero-social-row {
   display: flex;
   justify-content: center;
@@ -750,7 +750,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   background: rgba(128,0,32,.14);
   transform: translateY(-2px);
 }
-.social-symbol { color: #e2c7ce; font-size: .95rem; }
+.social-symbol { color: var(--maroon-light); font-size: .95rem; }
 .pill-arrow { margin-left: 2px; color: var(--maroon-light); }
 .hero-work-strip { position: relative; }
 .hero-strip-heading {
@@ -844,11 +844,11 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 .mini-window-top span { margin-left: 5px; color: #a99ca2; font: 7px "Space Mono", monospace; }
 .mini-dashboard-content { display: grid; grid-template-columns: 27% 1fr; min-height: 100px; }
 .mini-sidebar { padding: 8px 6px; background: #21141a; }
-.mini-sidebar b { color: #e4a7b9; font-size: 9px; }
+.mini-sidebar b { color: var(--maroon-light); font-size: 9px; }
 .mini-sidebar i { display: block; height: 4px; width: 78%; margin-top: 9px; background: #523541; border-radius: 2px; }
 .mini-sidebar i:first-of-type { background: #9e405b; }
 .mini-dash-main { padding: 8px; }
-.mini-dash-main small { display: block; color: #b98b9b; font: 6px "Space Mono", monospace; }
+.mini-dash-main small { display: block; color: var(--maroon-light); font: 6px "Space Mono", monospace; }
 .mini-dash-main > b { display: block; margin: 4px 0 7px; font-size: 10px; }
 .mini-stats { display: flex; gap: 4px; }
 .mini-stats i { flex: 1; height: 16px; border: 1px solid #523541; background: #2b1a22; border-radius: 3px; }
@@ -877,7 +877,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   background: radial-gradient(circle at 35% 30%, #a65b70, #4b1c2c 48%, #1b1015 72%);
   box-shadow: inset -10px -8px 25px #08080877, 0 0 28px #80002033;
 }
-.feature-kicker, .feature-subtitle { position: relative; z-index: 1; display: block; color: #d0aeb8; font: 7px "Space Mono", monospace; letter-spacing: 1px; }
+.feature-kicker, .feature-subtitle { position: relative; z-index: 1; display: block; color: var(--maroon-light); font: 7px "Space Mono", monospace; letter-spacing: 1px; }
 .hero-feature-visual strong {
   position: relative;
   z-index: 1;
@@ -887,7 +887,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   font: 36px/.83 "Instrument Serif", serif;
   letter-spacing: -1px;
 }
-.hero-feature-visual strong i { color: #d58aa0; }
+.hero-feature-visual strong i { color: var(--maroon-light); }
 .feature-subtitle { margin-top: 9px; letter-spacing: .1px; font-family: "DM Sans", sans-serif; }
 .mini-design {
   display: grid;
@@ -895,7 +895,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   position: relative;
   background: radial-gradient(circle at center, #361421, #121012 72%);
 }
-.mini-design-label { position: absolute; top: 7px; color: #d4a9b5; font: 7px "Space Mono", monospace; letter-spacing: 1px; }
+.mini-design-label { position: absolute; top: 7px; color: var(--maroon-light); font: 7px "Space Mono", monospace; letter-spacing: 1px; }
 .mini-phone {
   width: 76px;
   min-height: 105px;
@@ -1136,20 +1136,20 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .lanyard-hanger:hover .lanyard-card {
-  border-color: #d15b7c;
+  border-color: var(--maroon-light);
 }
 
 .lanyard-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #c99aaa;
+  color: var(--maroon-light);
   font: 7px "Space Mono", monospace;
   letter-spacing: .6px;
 }
 
 .lanyard-star {
-  color: #d15b7c;
+  color: var(--maroon-light);
   font-size: 16px;
 }
 
@@ -1179,7 +1179,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .lanyard-role span {
-  color: #e39bb0;
+  color: var(--maroon-light);
 }
 
 .lanyard-card-bottom {
@@ -1196,7 +1196,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .lanyard-code {
-  color: #e2a4b6;
+  color: var(--maroon-light);
   font-size: 19px;
 }
 
@@ -1210,7 +1210,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .lanyard-hint:first-letter {
-  color: #c04a6a;
+  color: var(--maroon-light);
 }
 
 @keyframes lanyardSwing {
@@ -1396,7 +1396,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   position: absolute;
   top: 8px;
   right: 10px;
-  color: #c15b79;
+  color: var(--maroon-light);
   font-size: 12px;
   opacity: 0;
   transform: translate(-3px, 3px);
@@ -1437,7 +1437,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 #skill-index {
-  color: #d2a0af;
+  color: var(--maroon-light);
 }
 
 .detail-main {
@@ -1494,7 +1494,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   border: 1px solid #43232e;
   border-radius: 100px;
   background: rgba(128,0,32,.1);
-  color: #d8b8c2;
+  color: var(--maroon-light);
   font-size: .68rem;
 }
 
@@ -1505,7 +1505,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 #skill-detail-status {
-  color: #cf8299;
+  color: var(--maroon-light);
   text-align: right;
 }
 
@@ -1543,7 +1543,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .focus-heading h3 i {
-  color: #bd526f;
+  color: var(--maroon-light);
   font-family: "Instrument Serif", serif;
 }
 
@@ -1577,7 +1577,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .focus-number {
-  color: #b54b68;
+  color: var(--maroon-light);
   font: 10px "Space Mono", monospace;
 }
 
@@ -1606,7 +1606,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 .focus-status {
   display: inline-block;
   margin-top: 20px;
-  color: #c17b91;
+  color: var(--maroon-light);
   font: 8px "Space Mono", monospace;
   letter-spacing: .5px;
 }
@@ -1753,7 +1753,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .projects-showcase .tab-number {
-  color: #c15b79;
+  color: var(--maroon-light);
   font: 9px "Space Mono", monospace;
 }
 
@@ -1770,7 +1770,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   height: 27px;
   border: 1px solid #49303a;
   border-radius: 50%;
-  color: #d6a7b5;
+  color: var(--maroon-light);
   font: 9px "Space Mono", monospace;
 }
 
@@ -1786,7 +1786,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .projects-showcase .swipe-icon {
-  color: #c15b79;
+  color: var(--maroon-light);
   font-size: 14px;
 }
 
@@ -1932,7 +1932,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .art-sidebar b {
-  color: #d99aae;
+  color: var(--maroon-light);
   font-size: 10px;
 }
 
@@ -1954,7 +1954,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .art-main > small {
-  color: #a98c97;
+  color: var(--maroon-light);
   font: 7px "Space Mono", monospace;
 }
 
@@ -1989,7 +1989,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .art-stats b {
   margin-top: 5px;
-  color: #e6c6d0;
+  color: var(--maroon-light);
   font-size: 12px;
 }
 
@@ -2055,7 +2055,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 .culture-eyebrow {
   position: relative;
   z-index: 1;
-  color: #d9b1bf;
+  color: var(--maroon-light);
   font: 7px "Space Mono", monospace;
   letter-spacing: 1px;
 }
@@ -2070,14 +2070,14 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .culture-window h4 i {
-  color: #d68aa2;
+  color: var(--maroon-light);
 }
 
 .culture-window p {
   position: relative;
   z-index: 1;
   margin-top: 12px;
-  color: #c3abb4;
+  color: var(--maroon-light);
   font-size: 9px;
   line-height: 1.6;
 }
@@ -2087,7 +2087,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   z-index: 1;
   display: inline-block;
   margin-top: 12px;
-  color: #e7c5cf;
+  color: var(--maroon-light);
   font: 7px "Space Mono", monospace;
 }
 
@@ -2150,7 +2150,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .phone-kicker {
-  color: #7e5262;
+  color: var(--maroon-light);
   font-size: 5px;
   letter-spacing: .4px;
 }
@@ -2162,7 +2162,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .interface-phone p {
   margin-top: 5px;
-  color: #785c67;
+  color: var(--maroon-light);
   font-size: 6px;
 }
 
@@ -2198,7 +2198,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .interface-floating-card > span {
-  color: #d0a1b0;
+  color: var(--maroon-light);
   font: 7px "Space Mono", monospace;
 }
 
@@ -2234,7 +2234,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  color: #bb607b;
+  color: var(--maroon-light);
   font: 8px "Space Mono", monospace;
   letter-spacing: .7px;
 }
@@ -2265,7 +2265,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   border: 1px solid #3c2831;
   border-radius: 100px;
   background: rgba(128,0,32,.1);
-  color: #d8bac4;
+  color: var(--maroon-light);
   font-size: .65rem;
 }
 
@@ -2289,7 +2289,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   place-items: center;
   border: 1px solid #4c2937;
   border-radius: 50%;
-  color: #d16a87;
+  color: var(--maroon-light);
   transition: .25s ease;
 }
 
@@ -2300,7 +2300,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 .project-card-link:hover b {
   color: #fff;
   background: #80203d;
-  border-color: #a52a42;
+  border-color: var(--maroon-light);
   transform: translate(2px, -2px);
 }
 
@@ -2328,13 +2328,13 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .manifesto-symbol {
   margin-bottom: 35px;
-  color: #c65b7a;
+  color: var(--maroon-light);
   font-size: 32px;
 }
 
 .project-manifesto .eyebrow {
   margin-bottom: 15px;
-  color: #b65a76;
+  color: var(--maroon-light);
   font: 9px "Space Mono", monospace;
   letter-spacing: 1px;
 }
@@ -2346,7 +2346,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .project-manifesto h3 i {
-  color: #c15b79;
+  color: var(--maroon-light);
   font-family: "Instrument Serif", serif;
 }
 
@@ -2371,7 +2371,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .manifesto-footer span:last-child {
-  color: #c15b79;
+  color: var(--maroon-light);
 }
 
 /* Category footer */
@@ -2408,7 +2408,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .projects-showcase .project-arrow:hover {
   background: #80203d;
-  border-color: #a52a42;
+  border-color: var(--maroon-light);
   transform: translateY(-2px);
 }
 
@@ -2565,12 +2565,12 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 .contact-symbol {
   display: inline-block;
   margin-bottom: 24px;
-  color: #c15b79;
+  color: var(--maroon-light);
   font-size: 30px;
 }
 
 .contact-overline {
-  color: #b45a76;
+  color: var(--maroon-light);
   font: 9px "Space Mono", monospace;
   letter-spacing: 1px;
 }
@@ -2585,7 +2585,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .contact-intro h3 i {
-  color: #c15b79;
+  color: var(--maroon-light);
   font-family: "Instrument Serif", serif;
   font-weight: 400;
 }
@@ -2619,7 +2619,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   border: 1px solid #4a2835;
   border-radius: 11px;
   background: rgba(128, 0, 32, .12);
-  color: #cf7b94;
+  color: var(--maroon-light);
   transition: .25s ease;
 }
 
@@ -2630,7 +2630,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .contact-method:hover .contact-method-icon {
   background: #80203d;
-  border-color: #a52a42;
+  border-color: var(--maroon-light);
   color: #fff;
   transform: translateY(-2px);
 }
@@ -2657,7 +2657,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .contact-method-arrow {
-  color: #c15b79;
+  color: var(--maroon-light);
   transition: transform .25s ease;
 }
 
@@ -2700,11 +2700,11 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .contact-social-links a span {
-  color: #c15b79;
+  color: var(--maroon-light);
 }
 
 .contact-social-links a:hover {
-  border-color: #a52a42;
+  border-color: var(--maroon-light);
   background: #26121a;
   color: #fff;
   transform: translateY(-2px);
@@ -2746,14 +2746,14 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .contact-form-heading h3 span {
-  color: #c15b79;
+  color: var(--maroon-light);
 }
 
 .contact-form-index {
   padding: 7px 9px;
   border: 1px solid #472b36;
   border-radius: 6px;
-  color: #c18a9c;
+  color: var(--maroon-light);
   font: 8px "Space Mono", monospace;
   white-space: nowrap;
 }
@@ -2819,7 +2819,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-  border-color: #a52a42;
+  border-color: var(--maroon-light);
   background: #191316;
   box-shadow: 0 0 0 3px rgba(165, 42, 66, .12);
 }
@@ -2910,7 +2910,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 }
 
 .contact-bottom a {
-  color: #c58ba0;
+  color: var(--maroon-light);
   transition: color .2s ease;
 }
 
@@ -3073,7 +3073,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .lanyard-hint {
   margin: 10px 0 0;
-  color: #987785;
+  color: var(--maroon-light);
   text-align: right;
   font-family: monospace;
   font-size: 10px;
@@ -3150,7 +3150,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
 
 .lanyard-hint {
   margin: 12px 0 0;
-  color: #987785;
+  color: var(--maroon-light);
   text-align: right;
   font-family: monospace;
   font-size: 10px;
@@ -3226,4 +3226,107 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; }
   background: transparent;
   opacity: 1;
   visibility: visible;
+}
+
+.hero-text em {
+    color: #A52A42 !important;
+    font-family: "Instrument Serif", serif;
+    font-size: 1.15em;
+}
+
+.hero-title-row .hero-text em {
+    color: #A52A42 !important;
+} 
+
+/* Menghilangkan angka di dalam button */
+.tab-number {
+    display: none !important;
+}
+
+/* Center text inside project category buttons */
+.project-tab {
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.project-tab .tab-label {
+    flex: 0 1 auto !important;
+    text-align: center !important;
+}
+
+
+/* ==========================================
+   FINAL FIX - PROJECT PREVIEW SIZE & LAYOUT
+========================================== */
+
+@media (min-width: 761px) {
+
+  /* Perbaiki susunan modal */
+  #project-modal .project-modal-container {
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 22px 26px;
+  }
+
+  /* Batasi tinggi setiap kolom */
+  #project-modal .modal-gallery,
+  #project-modal .modal-information {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* Thumbnail desktop lebih proporsional */
+  #project-modal .modal-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: min(34vh, 300px);
+    margin-inline: auto;
+  }
+
+  /* Thumbnail mobile berbentuk portrait */
+  #project-modal .modal-image-wrapper.mobile-view {
+    width: min(100%, 191px);
+    max-height: 340px;
+    aspect-ratio: 9 / 16;
+    margin-inline: auto;
+  }
+
+  /* Informasi memiliki scroll sendiri jika panjang */
+  #project-modal .modal-information {
+    max-height: min(48vh, 430px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 12px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #71384e transparent;
+  }
+
+  /* GitHub selalu berada di bawah kedua kolom */
+  #project-modal .modal-footer {
+    grid-column: 1 / -1;
+    align-self: end;
+  }
+
+}
+
+/* Penyesuaian tablet dan HP */
+@media (max-width: 760px) {
+
+  #project-modal .modal-image-wrapper {
+    max-height: 240px;
+    aspect-ratio: 16 / 9;
+  }
+
+  #project-modal .modal-image-wrapper.mobile-view {
+    width: min(100%, 180px);
+    max-height: 320px;
+    aspect-ratio: 9 / 16;
+  }
+
+  #project-modal .modal-information {
+    max-height: none;
+    overflow: visible;
+  }
+
 }

@@ -1,0 +1,1707 @@
+/* =========================================================
+   PROJECT DETAIL MODAL — MAROON EDITORIAL LAYOUT
+   Matches the supplied Desktop and Mobile modal references.
+   Kept separate from style.css to avoid changing the portfolio.
+========================================================= */
+
+#project-modal,
+#project-modal * {
+  box-sizing: border-box;
+}
+
+#project-modal[hidden] {
+  display: none !important;
+}
+
+#project-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  background: transparent;
+  transition: opacity .28s ease, visibility .28s ease;
+}
+
+#project-modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#project-modal .project-modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: rgba(5, 3, 6, .84);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+
+/* Main modal: two columns + a full-width footer row */
+#project-modal .project-modal-container {
+  position: relative;
+  z-index: 1;
+
+  width: min(1360px, calc(100vw - 56px));
+  height: min(790px, calc(100vh - 56px));
+  max-height: calc(100vh - 56px);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.43fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) 58px;
+  column-gap: 28px;
+  row-gap: 18px;
+
+  padding: 24px 26px 22px;
+
+  overflow: hidden;
+  overscroll-behavior: contain;
+
+  border: 1px solid rgba(176, 111, 139, .52);
+  border-radius: 25px;
+
+  background:
+    radial-gradient(
+      ellipse at 12% 0%,
+      rgba(129, 39, 75, .22),
+      transparent 42%
+    ),
+    linear-gradient(135deg, #1b1118 0%, #100d11 55%, #130e13 100%);
+
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, .68),
+    inset 0 1px 0 rgba(255, 255, 255, .035);
+
+  transform: translateY(16px) scale(.985);
+  transition: transform .28s ease;
+}
+
+#project-modal.active .project-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* Close */
+#project-modal .project-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 19px;
+  z-index: 10;
+
+  width: 39px;
+  height: 39px;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(194, 91, 127, .65);
+  border-radius: 50%;
+
+  background: rgba(24, 16, 22, .94);
+  color: #fff;
+
+  font: 25px/1 "DM Sans", sans-serif;
+  cursor: pointer;
+
+  transition: background .2s ease, transform .2s ease;
+}
+
+#project-modal .project-modal-close:hover {
+  background: #872849;
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   LEFT COLUMN — GALLERY
+========================================================= */
+
+#project-modal .modal-gallery {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  position: relative;
+}
+
+#project-modal .modal-gallery-heading {
+  min-height: 18px;
+  margin: 0 0 14px;
+  padding-right: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  color: #d17b9a;
+  font: 500 11px "Space Mono", monospace;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+/* The category is shown as a pill in the right column instead. */
+#project-modal .modal-gallery-heading span:nth-child(2) {
+  display: none;
+}
+
+/* Desktop / Mobile segmented switch */
+#project-modal .preview-switch {
+  width: min(100%, 390px);
+  min-height: 47px;
+  margin: 0 auto 12px;
+
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+
+  padding: 2px;
+
+  border: 1px solid rgba(111, 74, 91, .55);
+  border-radius: 999px;
+
+  background: rgba(29, 21, 28, .92);
+}
+
+#project-modal .preview-switch-btn {
+  flex: 1;
+  min-width: 0;
+  min-height: 41px;
+  padding: 9px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  background: transparent;
+  color: #c7b9c1;
+
+  font: 600 13px "DM Sans", sans-serif;
+  cursor: pointer;
+
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    box-shadow .22s ease;
+}
+
+#project-modal .preview-switch-btn:hover {
+  color: #fff;
+}
+
+#project-modal .preview-switch-btn.active {
+  border-color: rgba(220, 91, 133, .8);
+  background: linear-gradient(110deg, #8f294e, #b53662);
+  color: #fff;
+  box-shadow: 0 5px 18px rgba(165, 43, 86, .22);
+}
+
+#project-modal .preview-switch-btn span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* Gallery stage. Device frames are drawn with CSS so the original
+   screenshots can remain untouched. */
+#project-modal .modal-image-wrapper {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  height: min(430px, 47vh);
+  min-height: 285px;
+  flex: 0 1 auto;
+
+  margin: auto 0 0;
+
+  display: block;
+
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+}
+
+/* Laptop bezel */
+#project-modal .modal-image-wrapper:not(.mobile-view)::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  top: 4%;
+  left: 10%;
+  width: 80%;
+  height: 88%;
+
+  border: 7px solid #302a32;
+  border-bottom-width: 11px;
+  border-radius: 17px 17px 8px 8px;
+
+  background: #07080c;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, .46),
+    inset 0 0 0 1px rgba(255, 255, 255, .08);
+}
+
+/* Laptop screen */
+#project-modal .modal-image-wrapper:not(.mobile-view) > img {
+  position: absolute;
+  z-index: 1;
+
+  top: 7%;
+  left: 12%;
+  width: 76%;
+  height: 78%;
+
+  display: block;
+
+  border: 0;
+  border-radius: 2px;
+
+  object-fit: contain;
+  object-position: center;
+
+  opacity: 1;
+  transition: opacity .22s ease;
+}
+
+/* Laptop base */
+#project-modal .modal-image-wrapper:not(.mobile-view)::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+
+  left: 5%;
+  bottom: 3.5%;
+  width: 90%;
+  height: 10px;
+
+  border-radius: 0 0 55% 55%;
+
+  background: linear-gradient(
+    180deg,
+    #77717b 0%,
+    #38323b 42%,
+    #17141a 100%
+  );
+
+  box-shadow: 0 8px 12px rgba(0, 0, 0, .36);
+}
+
+/* Phone preview: keep the same gallery stage, center a portrait device. */
+#project-modal .modal-image-wrapper.mobile-view {
+  height: min(430px, 47vh);
+  min-height: 285px;
+  aspect-ratio: auto;
+
+  background: transparent;
+}
+
+/* Phone body */
+#project-modal .modal-image-wrapper.mobile-view::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  top: 2%;
+  left: 38%;
+  width: 24%;
+  height: 94%;
+
+  border: 7px solid #343039;
+  border-radius: 37px;
+
+  background: #08090e;
+
+  box-shadow:
+    0 15px 34px rgba(0, 0, 0, .5),
+    inset 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+/* Phone screen */
+#project-modal .modal-image-wrapper.mobile-view > img {
+  position: absolute;
+  z-index: 1;
+
+  top: 6.5%;
+  left: 40%;
+  width: 20%;
+  height: 85%;
+
+  display: block;
+
+  border: 0;
+  border-radius: 25px;
+
+  object-fit: contain;
+  object-position: top center;
+
+  opacity: 1;
+  transition: opacity .22s ease;
+}
+
+/* Small phone speaker / camera detail */
+#project-modal .modal-image-wrapper.mobile-view::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+
+  top: 4.2%;
+  left: calc(50% - 17px);
+  width: 34px;
+  height: 5px;
+
+  border-radius: 99px;
+  background: #111116;
+  box-shadow: 0 1px 2px rgba(255, 255, 255, .12);
+}
+
+#project-modal .modal-image-wrapper img.changing {
+  opacity: .22;
+}
+
+#project-modal .modal-image-wrapper img[hidden] {
+  display: none !important;
+}
+
+/* Unavailable image placeholder */
+#project-modal .modal-image-placeholder {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 24px;
+  text-align: center;
+
+  border: 1px dashed rgba(193, 104, 139, .42);
+  border-radius: 14px;
+
+  background:
+    radial-gradient(circle at 50% 35%, rgba(128, 32, 61, .25), transparent 55%),
+    #151016;
+}
+
+#project-modal .modal-image-placeholder[hidden] {
+  display: none !important;
+}
+
+#project-modal .placeholder-symbol {
+  color: #d27696;
+  font-size: 30px;
+}
+
+#project-modal .modal-image-placeholder strong {
+  color: #f1e8ed;
+  font: 600 14px "Space Grotesk", sans-serif;
+}
+
+#project-modal .modal-image-placeholder p {
+  max-width: 290px;
+  margin: 0;
+  color: #b9aab2;
+  font: 12px/1.7 "DM Sans", sans-serif;
+}
+
+/* Gallery arrows */
+#project-modal .gallery-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  transform: translateY(-50%);
+
+  width: 43px;
+  height: 43px;
+  padding: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 50%;
+
+  background: rgba(99, 88, 99, .62);
+  color: #fff;
+
+  font: 18px "DM Sans", sans-serif;
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+  transition: background .2s ease, border-color .2s ease, opacity .2s ease;
+}
+
+#project-modal .gallery-arrow:hover:not(:disabled) {
+  background: #a52e58;
+  border-color: #e17c9f;
+}
+
+#project-modal .gallery-arrow:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+#project-modal .gallery-prev {
+  left: 0;
+}
+
+#project-modal .gallery-next {
+  right: 0;
+}
+
+/* Number-only image counter */
+#project-modal .gallery-counter {
+  min-height: 20px;
+  margin: 9px 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #f1e8ed;
+  font: 600 14px "Space Mono", monospace;
+  letter-spacing: .5px;
+}
+
+/* =========================================================
+   RIGHT COLUMN — PROJECT INFORMATION
+========================================================= */
+
+#project-modal .modal-information {
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  padding: 0 12px 2px 29px;
+  border-left: 1px solid rgba(167, 112, 137, .36);
+
+  scrollbar-width: thin;
+  scrollbar-color: #754056 transparent;
+}
+
+#project-modal .modal-information::-webkit-scrollbar {
+  width: 5px;
+}
+
+#project-modal .modal-information::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  background: #754056;
+}
+
+/* Hide the extra metadata row; the category pill is the visual lead. */
+#project-modal .modal-info-topline {
+  display: none;
+}
+
+/* Category pill */
+#project-modal .modal-eyebrow {
+  width: fit-content;
+  max-width: calc(100% - 48px);
+
+  margin: 7px 0 17px;
+  padding: 8px 14px;
+
+  border: 1px solid rgba(199, 83, 123, .42);
+  border-radius: 999px;
+
+  background: linear-gradient(110deg, #70213f, #8e294d);
+  color: #fff;
+
+  font: 600 10px "DM Sans", sans-serif;
+  letter-spacing: .45px;
+}
+
+/* Project title */
+#project-modal .modal-information h2 {
+  max-width: 440px;
+  margin: 0 0 13px;
+
+  color: #f7f0f3;
+  font: 700 clamp(28px, 2.45vw, 36px)/1.12 "Space Grotesk", sans-serif;
+  letter-spacing: -.9px;
+}
+
+/* Description */
+#project-modal .modal-description {
+  max-width: 510px;
+  margin: 0;
+
+  color: #c7b8c0;
+  font: 14px/1.65 "DM Sans", sans-serif;
+}
+
+/* Information sections */
+#project-modal .modal-info-section {
+  margin-top: 20px;
+}
+
+#project-modal .modal-info-section h3 {
+  margin: 0 0 10px;
+
+  color: #f3eaf0;
+  font: 700 15px/1.3 "Space Grotesk", sans-serif;
+}
+
+/* Technology pills */
+#project-modal .modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+#project-modal .modal-tags span {
+  min-height: 34px;
+  padding: 7px 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #a34b6b;
+  border-radius: 999px;
+
+  background: rgba(128, 32, 61, .10);
+  color: #e4b2c4;
+
+  font: 12px "DM Sans", sans-serif;
+}
+
+/* Key features */
+#project-modal .modal-features {
+  display: grid;
+  gap: 8px;
+
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+#project-modal .modal-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+
+  color: #d0c3ca;
+  font: 14px/1.45 "DM Sans", sans-serif;
+}
+
+#project-modal .modal-features li::before {
+  content: "✓";
+  flex: 0 0 auto;
+
+  color: #e34d80;
+  font: 700 16px/1.2 "DM Sans", sans-serif;
+}
+
+/* Project overview */
+#project-modal .modal-overview {
+  max-width: 510px;
+  margin: 0;
+
+  color: #c5b7bf;
+  font: 13px/1.65 "DM Sans", sans-serif;
+}
+
+/* =========================================================
+   FULL-WIDTH GITHUB CTA — ALWAYS BELOW BOTH COLUMNS
+========================================================= */
+
+#project-modal .modal-footer {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  min-width: 0;
+  min-height: 58px;
+  align-self: stretch;
+}
+
+#project-modal .modal-github-button {
+  width: 100%;
+  height: 100%;
+  min-height: 58px;
+  padding: 12px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: 1px solid #c34a76;
+  border-radius: 12px;
+
+  background: linear-gradient(105deg, #8b244b 0%, #a82e59 55%, #92264f 100%);
+  color: #fff;
+
+  font: 700 15px "DM Sans", sans-serif;
+  text-align: center;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .13),
+    0 7px 22px rgba(113, 25, 59, .18);
+
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+#project-modal .modal-github-button:hover {
+  background: linear-gradient(105deg, #a12c58, #c43d70);
+  box-shadow: 0 9px 26px rgba(151, 37, 79, .3);
+  transform: translateY(-1px);
+}
+
+#project-modal .modal-github-button .github-icon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+#project-modal .modal-github-button b {
+  font-size: 19px;
+  line-height: 1;
+}
+
+/* Focus visibility */
+#project-modal button:focus-visible,
+#project-modal a:focus-visible {
+  outline: 2px solid #e17c9f;
+  outline-offset: 3px;
+}
+
+/* Keep the project card CTA consistent with the portfolio card design. */
+button.project-card-link {
+  appearance: none;
+  -webkit-appearance: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px 0 0;
+
+  border: 0;
+  border-top: 1px solid #30252b;
+  border-radius: 0;
+
+  background: transparent;
+  color: #d9cbd0;
+
+  font: inherit;
+  font-size: .76rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 761px) and (max-width: 1050px) {
+  #project-modal .project-modal-container {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 20px;
+    padding: 22px;
+  }
+
+  #project-modal .modal-information {
+    padding-left: 20px;
+  }
+
+  #project-modal .modal-information h2 {
+    font-size: 27px;
+  }
+
+  #project-modal .modal-description,
+  #project-modal .modal-features li {
+    font-size: 12px;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 15px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(390px, 43vh);
+  }
+}
+
+/* =========================================================
+   MOBILE / NARROW VIEWPORT
+========================================================= */
+
+@media (max-width: 760px) {
+  #project-modal {
+    padding: 9px;
+    align-items: center;
+  }
+
+  #project-modal .project-modal-container {
+    width: min(100%, 620px);
+    height: min(94vh, 900px);
+    max-height: 94vh;
+
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) 54px;
+    gap: 16px;
+
+    padding: 18px 16px 14px;
+    border-radius: 19px;
+
+    overflow-y: auto;
+  }
+
+  #project-modal .project-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+
+  #project-modal .modal-gallery {
+    min-height: 0;
+  }
+
+  #project-modal .modal-gallery-heading {
+    min-height: 16px;
+    margin-bottom: 11px;
+    font-size: 9px;
+  }
+
+  #project-modal .preview-switch {
+    width: min(100%, 360px);
+    min-height: 42px;
+    margin-bottom: 8px;
+  }
+
+  #project-modal .preview-switch-btn {
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    width: 100%;
+    height: min(300px, 36vh);
+    min-height: 210px;
+    margin: 0 auto;
+  }
+
+  #project-modal .modal-image-wrapper:not(.mobile-view)::before {
+    left: 8%;
+    width: 84%;
+  }
+
+  #project-modal .modal-image-wrapper:not(.mobile-view) > img {
+    left: 10%;
+    width: 80%;
+  }
+
+  #project-modal .modal-image-wrapper.mobile-view::before {
+    left: 38%;
+    width: 24%;
+  }
+
+  #project-modal .modal-image-wrapper.mobile-view > img {
+    left: 40%;
+    width: 20%;
+  }
+
+  #project-modal .gallery-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+
+  #project-modal .gallery-prev {
+    left: 1px;
+  }
+
+  #project-modal .gallery-next {
+    right: 1px;
+  }
+
+  #project-modal .gallery-counter {
+    margin-top: 5px;
+    min-height: 18px;
+    font-size: 12px;
+  }
+
+  #project-modal .modal-information {
+    min-height: 0;
+    max-height: none;
+
+    overflow: visible;
+
+    padding: 15px 2px 0;
+    border-left: 0;
+    border-top: 1px solid rgba(167, 112, 137, .32);
+  }
+
+  #project-modal .modal-eyebrow {
+    margin: 0 0 12px;
+    padding: 7px 12px;
+    font-size: 9px;
+  }
+
+  #project-modal .modal-information h2 {
+    max-width: 100%;
+    margin-bottom: 10px;
+    font-size: clamp(23px, 5vw, 29px);
+  }
+
+  #project-modal .modal-description {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 15px;
+  }
+
+  #project-modal .modal-info-section h3 {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  #project-modal .modal-tags span {
+    min-height: 30px;
+    padding: 6px 11px;
+    font-size: 11px;
+  }
+
+  #project-modal .modal-features {
+    gap: 6px;
+  }
+
+  #project-modal .modal-features li {
+    font-size: 12px;
+  }
+
+  #project-modal .modal-overview {
+    font-size: 12px;
+  }
+
+  #project-modal .modal-footer {
+    grid-column: 1;
+    grid-row: 3;
+
+    min-height: 50px;
+  }
+
+  #project-modal .modal-github-button {
+    min-height: 50px;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  #project-modal .modal-github-button .github-icon {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+  #project-modal .project-modal-container {
+    padding: 16px 12px 12px;
+    gap: 13px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(260px, 34vh);
+    min-height: 190px;
+  }
+
+  #project-modal .modal-image-wrapper.mobile-view::before {
+    left: 37%;
+    width: 26%;
+  }
+
+  #project-modal .modal-image-wrapper.mobile-view > img {
+    left: 39.5%;
+    width: 21%;
+  }
+
+  #project-modal .modal-information {
+    padding-top: 12px;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 13px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  #project-modal .project-modal-container {
+    height: calc(100vh - 28px);
+    max-height: calc(100vh - 28px);
+    padding-top: 18px;
+    padding-bottom: 16px;
+    row-gap: 12px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(350px, 43vh);
+    min-height: 230px;
+  }
+
+  #project-modal .modal-eyebrow {
+    margin-top: 2px;
+    margin-bottom: 12px;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #project-modal,
+  #project-modal .project-modal-container,
+  #project-modal .modal-image-wrapper img,
+  #project-modal .preview-switch-btn {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   COMPACT ELEGANT OVERRIDES
+   Reduce modal dimensions and tighten internal spacing.
+   Added after the original rules so existing functionality
+   (gallery, desktop/mobile switch, arrows and slideshow) stays intact.
+========================================================= */
+
+@media (min-width: 1051px) {
+  #project-modal .project-modal-container {
+    width: min(1160px, calc(100vw - 72px));
+    height: min(680px, calc(100vh - 64px));
+    max-height: calc(100vh - 64px);
+
+    grid-template-columns: minmax(0, 1.38fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) 48px;
+    column-gap: 20px;
+    row-gap: 12px;
+
+    padding: 20px 22px 18px;
+    border-radius: 22px;
+  }
+
+  #project-modal .project-modal-close {
+    top: 14px;
+    right: 15px;
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+  }
+
+  #project-modal .modal-gallery-heading {
+    min-height: 16px;
+    margin-bottom: 9px;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  #project-modal .preview-switch {
+    width: min(100%, 340px);
+    min-height: 40px;
+    margin-bottom: 8px;
+  }
+
+  #project-modal .preview-switch-btn {
+    min-height: 35px;
+    padding: 6px 12px;
+    gap: 7px;
+    font-size: 12px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(360px, 40vh);
+    min-height: 220px;
+  }
+
+  #project-modal .gallery-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  #project-modal .gallery-counter {
+    min-height: 18px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  #project-modal .modal-information {
+    padding: 0 8px 0 20px;
+  }
+
+  #project-modal .modal-eyebrow {
+    margin: 3px 0 11px;
+    padding: 6px 11px;
+    font-size: 9px;
+  }
+
+  #project-modal .modal-information h2 {
+    max-width: 100%;
+    margin-bottom: 9px;
+    font-size: clamp(24px, 2vw, 31px);
+    letter-spacing: -.7px;
+  }
+
+  #project-modal .modal-description {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 14px;
+  }
+
+  #project-modal .modal-info-section h3 {
+    margin-bottom: 7px;
+    font-size: 14px;
+  }
+
+  #project-modal .modal-tags {
+    gap: 7px;
+  }
+
+  #project-modal .modal-tags span {
+    min-height: 30px;
+    padding: 6px 11px;
+    font-size: 11px;
+  }
+
+  #project-modal .modal-features {
+    gap: 6px;
+  }
+
+  #project-modal .modal-features li {
+    gap: 9px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  #project-modal .modal-overview {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  #project-modal .modal-footer,
+  #project-modal .modal-github-button {
+    min-height: 48px;
+  }
+
+  #project-modal .modal-github-button {
+    padding: 9px 14px;
+    font-size: 13px;
+    gap: 9px;
+    border-radius: 10px;
+  }
+
+  #project-modal .modal-github-button .github-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  #project-modal .modal-github-button b {
+    font-size: 16px;
+  }
+}
+
+/* Compact tablet layout */
+@media (min-width: 761px) and (max-width: 1050px) {
+  #project-modal .project-modal-container {
+    width: calc(100vw - 48px);
+    height: min(650px, calc(100vh - 48px));
+    max-height: calc(100vh - 48px);
+
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) 46px;
+    column-gap: 14px;
+    row-gap: 10px;
+
+    padding: 16px;
+    border-radius: 19px;
+  }
+
+  #project-modal .project-modal-close {
+    top: 11px;
+    right: 11px;
+    width: 32px;
+    height: 32px;
+  }
+
+  #project-modal .modal-gallery-heading {
+    margin-bottom: 8px;
+    font-size: 9px;
+  }
+
+  #project-modal .preview-switch {
+    width: min(100%, 300px);
+    min-height: 37px;
+    margin-bottom: 6px;
+  }
+
+  #project-modal .preview-switch-btn {
+    min-height: 32px;
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(320px, 39vh);
+    min-height: 200px;
+  }
+
+  #project-modal .modal-information {
+    padding-left: 15px;
+    padding-right: 5px;
+  }
+
+  #project-modal .modal-eyebrow {
+    margin: 2px 0 9px;
+    padding: 5px 9px;
+    font-size: 9px;
+  }
+
+  #project-modal .modal-information h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+  }
+
+  #project-modal .modal-description,
+  #project-modal .modal-features li {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 11px;
+  }
+
+  #project-modal .modal-info-section h3 {
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+
+  #project-modal .modal-tags {
+    gap: 6px;
+  }
+
+  #project-modal .modal-tags span {
+    min-height: 28px;
+    padding: 5px 9px;
+    font-size: 10px;
+  }
+
+  #project-modal .modal-features {
+    gap: 5px;
+  }
+
+  #project-modal .modal-overview {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  #project-modal .modal-footer,
+  #project-modal .modal-github-button {
+    min-height: 46px;
+  }
+
+  #project-modal .modal-github-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* More compact stacked layout on real phones */
+@media (max-width: 760px) {
+  #project-modal {
+    padding: 8px;
+  }
+
+  #project-modal .project-modal-container {
+    width: min(100%, 560px);
+    height: min(92vh, 820px);
+    max-height: 92vh;
+
+    grid-template-rows: auto minmax(0, 1fr) 46px;
+    gap: 11px;
+
+    padding: 14px 13px 11px;
+    border-radius: 17px;
+  }
+
+  #project-modal .project-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
+  }
+
+  #project-modal .modal-gallery-heading {
+    min-height: 14px;
+    margin-bottom: 8px;
+    font-size: 8px;
+  }
+
+  #project-modal .preview-switch {
+    width: min(100%, 310px);
+    min-height: 38px;
+    margin-bottom: 6px;
+  }
+
+  #project-modal .preview-switch-btn {
+    min-height: 33px;
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(230px, 29vh);
+    min-height: 165px;
+  }
+
+  #project-modal .gallery-arrow {
+    width: 33px;
+    height: 33px;
+    font-size: 14px;
+  }
+
+  #project-modal .gallery-counter {
+    min-height: 16px;
+    margin-top: 4px;
+    font-size: 11px;
+  }
+
+  #project-modal .modal-information {
+    padding: 10px 2px 0;
+  }
+
+  #project-modal .modal-eyebrow {
+    margin: 0 0 8px;
+    padding: 5px 9px;
+    font-size: 8px;
+  }
+
+  #project-modal .modal-information h2 {
+    margin-bottom: 7px;
+    font-size: clamp(21px, 5vw, 25px);
+  }
+
+  #project-modal .modal-description {
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 11px;
+  }
+
+  #project-modal .modal-info-section h3 {
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+
+  #project-modal .modal-tags {
+    gap: 6px;
+  }
+
+  #project-modal .modal-tags span {
+    min-height: 27px;
+    padding: 5px 9px;
+    font-size: 10px;
+  }
+
+  #project-modal .modal-features {
+    gap: 5px;
+  }
+
+  #project-modal .modal-features li,
+  #project-modal .modal-overview {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  #project-modal .modal-footer,
+  #project-modal .modal-github-button {
+    min-height: 44px;
+  }
+
+  #project-modal .modal-github-button {
+    padding: 8px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 420px) {
+  #project-modal .project-modal-container {
+    padding: 12px 10px 10px;
+    gap: 9px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(205px, 27vh);
+    min-height: 150px;
+  }
+
+  #project-modal .modal-information {
+    padding-top: 9px;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 9px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  #project-modal .project-modal-container {
+    height: calc(100vh - 40px);
+    max-height: calc(100vh - 40px);
+    padding-top: 14px;
+    padding-bottom: 12px;
+    row-gap: 9px;
+  }
+
+  #project-modal .modal-image-wrapper,
+  #project-modal .modal-image-wrapper.mobile-view {
+    height: min(300px, 38vh);
+    min-height: 185px;
+  }
+
+  #project-modal .modal-info-section {
+    margin-top: 10px;
+  }
+}
+
+/* =========================================
+   FINAL ALIGNMENT FIX
+   - Right text centered in its column
+   - Left preview fully centered
+========================================= */
+
+/* ===== WRAPPER MODAL ===== */
+.project-modal-container {
+  align-items: center;
+}
+
+/* ===== KOLOM KIRI / GALLERY ===== */
+.modal-gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 0;
+  height: 100%;
+}
+
+/* heading kiri tetap rapi */
+.modal-gallery-heading {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* tombol desktop/mobile di tengah */
+.preview-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+/* gambar tepat di tengah */
+.modal-image-wrapper {
+  position: relative;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* kalau mau ukuran preview lebih presisi */
+.modal-image-wrapper img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* indikator di tengah */
+.gallery-counter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* panah tetap center secara vertikal */
+.gallery-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* posisi panah kiri kanan lebih rapi */
+.gallery-prev {
+  left: -24px;
+}
+
+.gallery-next {
+  right: -24px;
+}
+
+/* ===== KOLOM KANAN / INFORMASI ===== */
+.modal-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* ini bikin isi naik turun jadi center */
+  align-self: center;
+
+  height: 100%;
+  min-width: 0;
+
+  max-width: 420px;
+  margin: 0 auto;
+
+  text-align: left;          /* tetap rapi dibaca */
+}
+
+/* kalau ingin semua blok penjelasan lebih rapat */
+.modal-information > * {
+  width: 100%;
+}
+
+/* bagian judul & deskripsi tetap rapi */
+.modal-information h2,
+.modal-description,
+.modal-overview,
+.modal-info-section,
+.modal-info-topline,
+.modal-eyebrow {
+  width: 100%;
+}
+
+/* tag teknologi tetap rata dan tidak melebar aneh */
+.modal-tags {
+  justify-content: flex-start;
+}
+
+/* key features lebih rapi */
+.modal-features {
+  width: 100%;
+}
+
+/* ===== TOMBOL GITHUB ===== */
+.modal-footer {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 760px) {
+  .project-modal-container {
+    align-items: stretch;
+  }
+
+  .modal-gallery {
+    align-items: center;
+  }
+
+  .modal-information {
+    max-width: 100%;
+    margin: 0;
+    justify-content: flex-start;
+  }
+
+  .gallery-prev {
+    left: 8px;
+  }
+
+  .gallery-next {
+    right: 8px;
+  }
+}
+
+@media (min-width: 761px) {
+
+  #project-modal .modal-image-wrapper:not(.mobile-view) {
+    position: relative;
+    top: -35px;
+  }
+
+  #project-modal .gallery-counter {
+    position: relative;
+    top: -35px;
+    margin-top: 10px;
+  }
+
+}
+
+@media (min-width: 761px) {
+
+  #project-modal .modal-image-wrapper:not(.mobile-view) {
+    position: relative;
+    top: -35px;
+  }
+
+  #project-modal .gallery-counter {
+    position: relative;
+    top: -35px;
+    margin-top: 10px;
+  }
+
+}
+
+
+/* ==============================================
+   FINAL FIX - EXACT IMAGE AND DEVICE ALIGNMENT
+   All screenshots use the same screen boundaries
+================================================ */
+
+/* ---------- DESKTOP LAPTOP FRAME ---------- */
+
+#project-modal .modal-image-wrapper:not(.mobile-view)::before {
+    top: 4% !important;
+    left: 10% !important;
+    width: 80% !important;
+    height: 88% !important;
+
+    border-width: 7px !important;
+    border-bottom-width: 11px !important;
+}
+
+/* Desktop screenshot fills the inner laptop screen */
+#project-modal .modal-image-wrapper:not(.mobile-view) > img {
+    position: absolute !important;
+
+    top: calc(4% + 7px) !important;
+    left: calc(10% + 7px) !important;
+
+    width: calc(80% - 14px) !important;
+    height: calc(88% - 18px) !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    border-radius: 2px !important;
+}
+
+/* Center arrows with the laptop screen */
+#project-modal .modal-image-wrapper:not(.mobile-view) .gallery-arrow {
+    top: 48% !important;
+}
+
+
+/* ---------- MOBILE PHONE FRAME ---------- */
+
+#project-modal .modal-image-wrapper.mobile-view::before {
+    top: 2% !important;
+    left: 38% !important;
+
+    width: 24% !important;
+    height: 94% !important;
+
+    border-width: 7px !important;
+    border-radius: 37px !important;
+}
+
+/* Mobile screenshot fills the inner phone screen */
+#project-modal .modal-image-wrapper.mobile-view > img {
+    position: absolute !important;
+
+    top: calc(2% + 7px) !important;
+    left: calc(38% + 7px) !important;
+
+    width: calc(24% - 14px) !important;
+    height: calc(94% - 14px) !important;
+
+    object-fit: cover !important;
+    object-position: center top !important;
+
+    border-radius: 28px !important;
+}
+
+/* Center arrows with the phone screen */
+#project-modal .modal-image-wrapper.mobile-view .gallery-arrow {
+    top: 49% !important;
+}
+
+
+/* ---------- RESPONSIVE TABLET / PHONE ---------- */
+
+@media (max-width: 760px) {
+
+    /* Laptop frame */
+    #project-modal .modal-image-wrapper:not(.mobile-view)::before {
+        left: 8% !important;
+        width: 84% !important;
+    }
+
+    #project-modal .modal-image-wrapper:not(.mobile-view) > img {
+        left: calc(8% + 7px) !important;
+        width: calc(84% - 14px) !important;
+    }
+}
+
+
+/* Small phone frame */
+@media (max-width: 420px) {
+
+    #project-modal .modal-image-wrapper.mobile-view::before {
+        left: 37% !important;
+        width: 26% !important;
+    }
+
+    #project-modal .modal-image-wrapper.mobile-view > img {
+        left: calc(37% + 7px) !important;
+        width: calc(26% - 14px) !important;
+    }
+}
